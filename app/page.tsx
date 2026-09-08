@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { ArrowUpRight, ArrowDown, ArrowRight, Plus, Minus, Star, X, ShoppingBag } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowRight, Plus, Minus, Star, X, ShoppingBag, Check, Sparkles, CreditCard, Truck } from 'lucide-react';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -83,7 +83,7 @@ function Shot({n,alt,priority}:{n:number|null;alt:string;priority?:boolean}){
  return <img src={`/images/campaign-${n}.png`} alt={alt} loading={priority?undefined:'lazy'} fetchPriority={priority?'high':undefined} width="1122" height="1402"/>;
 }
 function Rating({score,count}:{score:number;count:number}){
- return <div className="rating"><span className="rating-stars" aria-hidden="true">{[1,2,3,4,5].map(n=><Star key={n} size={13} className={n<=Math.round(score)?'on':''}/>)}</span><span>{score.toLocaleString('pt-BR',{minimumFractionDigits:1})}/5</span><span className="rating-count">{count.toLocaleString('pt-BR')} avaliações</span></div>;
+ return <div className="rating"><span className="rating-stars" aria-hidden="true">{[1,2,3,4,5].map(n=><Star key={n} size={14} className={n<=Math.round(score)?'on':''}/>)}</span><strong>{score.toLocaleString('pt-BR',{minimumFractionDigits:1})}/5</strong><a className="rating-count" href="#avaliacoes">{count.toLocaleString('pt-BR')} avaliações</a></div>;
 }
 const tabDefs=[{id:'descricao',label:'DESCRIÇÃO'},{id:'ingredientes',label:'INGREDIENTES'},{id:'uso',label:'MODO DE USO'},{id:'entrega',label:'ENTREGA'}];
 // Prefixo obrigatorio: slugs como "345-relief-cream" comecam com digito e viram
@@ -95,18 +95,26 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
  const [selected,setSelected]=useState(String((p.kits.find(k=>k.popular)??p.kits[0])?.qty??''));
  const [tab,setTab]=useState('descricao');
  const kit=p.kits.find(k=>String(k.qty)===selected);
+ // Economia calculada sobre o preco unitario real; nao existe preco "de" para 1 unidade.
+ const unitRef=p.kits[0]?.price??0;
  return <section className="pdp" id={anchor(p.slug)}>
  <div className="pdp-info">
-  <span className="pdp-crumb">Dr. Althea / {p.name}</span>
-  <h2>{p.name}</h2>
+  <span className="pdp-crumb">DR. ALTHEA · {p.category}</span>
   {p.rating&&<Rating score={p.rating.score} count={p.rating.count}/>}
-  <p className="pdp-price">{kit?money(kit.price):'Valor a definir'}</p>
-  {kit&&<p className="pdp-pix">{money(kit.price-loja.pixOff)} no Pix <em>economize {money(loja.pixOff)}</em></p>}
-  {kit&&<p className="pdp-terms">ou em até {loja.parcelas}x de {money(kit.price/loja.parcelas)} sem juros</p>}
-  <p className="pdp-volume">{p.volume}</p>
-  <p className="pdp-subtitle">{p.subtitle}</p>
-  {p.benefits.length>0?<div className="pdp-benefits"><span className="eyebrow green">PRINCIPAIS BENEFÍCIOS</span><ul>{p.benefits.map(b=><li key={b}>{b}</li>)}</ul></div>:<p className="pending-note">Benefícios a preencher.</p>}
-  {p.kits.length>0?<><RadioGroup value={selected} onValueChange={v=>setSelected(String(v))} aria-label="Escolha um kit ilustrativo" className="kit-options">{p.kits.map(k=><label className={`kit-option ${selected===String(k.qty)?'selected':''}`} key={k.qty}><RadioGroupItem value={String(k.qty)} aria-label={`${k.qty} ${k.qty===1?'unidade':'unidades'}`}/><span><strong>{k.qty} {k.qty===1?'unidade':'unidades'}{k.popular&&<i className="kit-badge">MAIS POPULAR</i>}</strong><small>{k.name}</small></span><span className="kit-price">{money(k.price)}<small>{money(k.price/k.qty)} / un.</small></span></label>)}</RadioGroup><Button className="button pdp-button" onClick={()=>onAdd(p,kit!)}>Adicionar ao carrinho <ArrowRight size={16}/></Button><p className="pdp-shipping">{loja.frete}</p><p className="demo-label">Prévia de design · valores fictícios, compra indisponível.</p></>:<p className="pending-note">Kits, volumes e valores serão definidos junto com as informações deste produto.</p>}
+  <h2>{p.name}</h2>
+  <p className="pdp-subtitle">{p.subtitle} <span>{p.volume}</span></p>
+  {p.benefits.length>0?<ul className="pdp-pills">{p.benefits.map(b=><li key={b}><Check size={13}/>{b}</li>)}</ul>:<p className="pending-note">Benefícios a preencher.</p>}
+  {p.kits.length>0?<>
+   <p className="kit-divider"><span>COMPRE MAIS, ECONOMIZE MAIS</span></p>
+   <RadioGroup value={selected} onValueChange={v=>setSelected(String(v))} aria-label="Escolha um kit ilustrativo" className="kit-options">{p.kits.map(k=>{const de=unitRef*k.qty,off=de-k.price;return <label className={`kit-option ${selected===String(k.qty)?'selected':''}`} key={k.qty}>
+    {k.popular&&<i className="kit-badge">MAIS POPULAR</i>}
+    <RadioGroupItem value={String(k.qty)} aria-label={`${k.qty} ${k.qty===1?'unidade':'unidades'}`}/>
+    <span className="kit-label"><strong>{k.qty} {k.qty===1?'Unidade':'Unidades'}{off>0&&<i className="kit-off">Economize {money(off)}</i>}</strong><small>no Pix: <b>{money(k.price-loja.pixOff)}</b></small></span>
+    <span className="kit-price"><strong>{money(k.price)}</strong>{off>0&&<s>{money(de)}</s>}</span></label>})}</RadioGroup>
+   <p className="pix-strip"><Sparkles size={15}/> Pagando no <b>Pix</b> você economiza <b>{money(loja.pixOff)}</b></p>
+   <Button className="button pdp-button" onClick={()=>onAdd(p,kit!)}>ADICIONAR AO CARRINHO</Button>
+   <div className="pdp-terms"><span><CreditCard size={15}/> em até <b>{loja.parcelas}x</b> no cartão</span><span><Truck size={15}/> <b>Frete grátis</b> · entrega em 14 a 28 dias úteis</span></div>
+   <p className="demo-label">Prévia de design · valores fictícios, compra indisponível.</p></>:<p className="pending-note">Kits, volumes e valores serão definidos junto com as informações deste produto.</p>}
   <div className="pdp-tabs">
    <div className="tab-list" role="tablist" aria-label={`Informações sobre ${p.name}`}>{tabDefs.map(t=><button key={t.id} role="tab" id={`${anchor(p.slug)}-tab-${t.id}`} aria-selected={tab===t.id} aria-controls={`${anchor(p.slug)}-panel-${t.id}`} className={tab===t.id?'active':''} onClick={()=>setTab(t.id)}>{t.label}</button>)}</div>
    {tabDefs.map(t=><div key={t.id} role="tabpanel" id={`${anchor(p.slug)}-panel-${t.id}`} aria-labelledby={`${anchor(p.slug)}-tab-${t.id}`} className="tab-panel" hidden={tab!==t.id}>
