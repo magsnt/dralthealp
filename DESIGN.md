@@ -96,3 +96,7 @@ A seção do produto passou de um teto de 1440px para 1800px e agora fica centra
 ## Décima terceira versão — 147 Barrier Cream
 O segundo espaço reservado do catálogo foi preenchido com o 147 Barrier Cream. A galeria usa as oito imagens fornecidas pelo usuário, com a fotografia limpa do tubo como capa e principal, seguida por aplicação, textura e cenas de rotina. O componente de imagem agora aceita tanto a numeração da campanha original quanto nomes próprios de arquivo, permitindo manter os materiais de cada produto organizados.
 Nome, volume, benefícios, ingredientes centrais, modo de uso e avaliação foram baseados na página oficial da Dr. Althea. Os kits de 1, 2 e 3 unidades continuam explicitamente apresentados como valores fictícios nesta prévia e precisam de confirmação comercial antes da abertura da loja.
+
+## Décima quarta versão — mural demonstrativo de avaliações
+A seção de avaliações passou de três depoimentos horizontais para um mural editorial em três colunas, inspirado na referência enviada pelo usuário. São oito cards com alturas variadas, nome, data ilustrativa, nota, título, relato, produto citado e algumas imagens editoriais. No celular, os cards formam uma única coluna.
+Como os relatos não vieram de compradores, cada card exibe “EXEMPLO FICTÍCIO” e a abertura da seção informa que nomes, datas e textos não pertencem a clientes reais. O selo “compra verificada” fica reservado para avaliações reais que forem importadas da Shopify.

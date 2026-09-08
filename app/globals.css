@@ -1491,44 +1491,90 @@ figure {
   font-size: 11px !important;
 }
 .review-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
+  columns: 3;
+  column-gap: 18px;
   margin-top: 50px;
 }
 .review-grid article {
-  border-top: 1px solid #d8d8d4;
-  padding-top: 25px;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 18px;
+  border: 1px solid #e3e3df;
+  background: #fff;
+  break-inside: avoid;
+}
+.review-grid article > img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+}
+.review-card-body {
+  padding: 22px;
+}
+.review-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.review-card-head strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d1d1b;
+}
+.review-card-head time {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  color: #888;
+}
+.review-card-head > span {
+  padding: 4px 7px;
+  background: var(--accent);
+  color: #1d1d1b;
+  font-size: 8px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 .review-stars {
   display: flex;
   gap: 4px;
-  color: #1d1d1b;
+  margin-top: 16px;
+  color: #c5c5c0;
 }
 .review-stars svg {
+  fill: transparent;
+}
+.review-stars svg.on {
+  color: #1d1d1b;
   fill: #1d1d1b;
 }
-.review-grid blockquote {
-  margin: 24px 0 30px;
-  font-size: 16px;
-  line-height: 1.9;
-  min-height: 150px;
+.review-grid h3 {
+  margin-top: 14px;
+  font-size: 18px;
+  line-height: 1.3;
 }
-.review-person {
+.review-grid blockquote {
+  margin: 10px 0 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+.review-product {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
   font-size: 12px;
 }
-.review-person small {
-  display: block;
+.review-product small {
   font-size: 10px;
   color: #777;
-}
-.review-person > span:last-child {
-  font-size: 8px;
-  letter-spacing: 0.1em;
-  color: #777;
+  text-align: right;
 }
 .why {
   display: grid;
@@ -1772,6 +1818,11 @@ figure {
   }
 }
 @media (max-width: 600px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
   .hero-campaign {
     height: 480px;
   }
@@ -1808,13 +1859,11 @@ figure {
     font-size: 14px;
   }
   .review-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    columns: 1;
     margin-top: 35px;
   }
   .review-grid blockquote {
-    min-height: 0;
-    margin: 20px 0 25px;
+    margin: 10px 0 22px;
   }
   .review-disclaimer {
     margin-top: 20px;
