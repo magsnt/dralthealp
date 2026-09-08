@@ -100,3 +100,6 @@ Nome, volume, benefícios, ingredientes centrais, modo de uso e avaliação fora
 ## Décima quarta versão — mural demonstrativo de avaliações
 A seção de avaliações passou de três depoimentos horizontais para um mural editorial em três colunas, inspirado na referência enviada pelo usuário. São oito cards com alturas variadas, nome, data ilustrativa, nota, título, relato, produto citado e algumas imagens editoriais. No celular, os cards formam uma única coluna.
 Como os relatos não vieram de compradores, cada card exibe “EXEMPLO FICTÍCIO” e a abertura da seção informa que nomes, datas e textos não pertencem a clientes reais. O selo “compra verificada” fica reservado para avaliações reais que forem importadas da Shopify.
+
+## Décima quinta versão — avaliações em movimento contínuo
+As imagens de divulgação foram removidas dos cards de avaliação. O mural virou duas faixas horizontais contínuas: a primeira se move para a esquerda e a segunda no sentido oposto, com duplicação interna dos quatro cards de cada linha para formar um ciclo sem interrupção. Os selos individuais e a numeração demonstrativa foram removidos; permanece o aviso geral de que nomes, datas e relatos são conteúdo fictício de layout.
