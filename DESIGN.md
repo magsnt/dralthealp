@@ -40,3 +40,14 @@ Cada kit mostra economia e preço "de" riscado. O valor de referência é o pre�
 Selo "MAIS POPULAR" passou a ficar posicionado no topo do card do kit, não mais inline no texto.
 A contagem de avaliações virou link para a seção de avaliações.
 Cabeçalho no mobile virou flex de uma linha (marca, navegação, carrinho); com o botão do carrinho ele quebrava em duas linhas.
+
+## Sexta versão — paleta azul e bloco unitário reduzido
+Cor de destaque trocada de verde para azul, a pedido do usuário, que indicou #9ecbec.
+#9ecbec sobre branco dá 1,72:1 de contraste e reprova em qualquer critério de texto (o mínimo AA é 4,5:1). Ele ficou como o tom de marca em preenchimentos e bordas, e a escala foi derivada dele para os demais papéis:
+- --accent #9ecbec: apenas decoração e bordas suaves
+- --accent-mid #2b86b5 (4,05:1): estrelas, borda do kit selecionado, miniatura ativa
+- --accent-strong #15668c (6,34:1): todo texto, links, ícones e selos
+- fundos: #eaf4fb (pílulas), #f2f8fc (faixa do Pix), #f4fafd (kit selecionado), #c9e2f3 (bordas)
+Contraste medido no navegador sobre os elementos renderizados: menor valor 5,69:1 (pílulas e selo de economia), maior 16,88:1. Todos passam no AA.
+A variável --green virou apelido de --accent-strong para não quebrar a regra .green herdada, que já não é usada no JSX.
+Bloco do produto unitário reduzido para ficar na mesma escala da seção de produtos: coluna da foto de 1.15fr para .85fr, largura máxima de 1040px acompanhando os 900px da grade, título de 40px para 35px e padding inferior de 110px para 80px. A 1280px a foto foi de 615x769 para 373x466. Os tamanhos de texto ganhos na quinta versão foram mantidos: a redução é de área e espaçamento, não de legibilidade.
