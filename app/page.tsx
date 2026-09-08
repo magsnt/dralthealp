@@ -9,9 +9,10 @@ import { Button } from '@/components/ui/button';
 const money=(n:number)=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const loja={pixOff:30,parcelas:3,frete:'Frete grátis · entrega em 14 a 28 dias úteis'};
 type Kit={qty:number;name:string;price:number;popular?:boolean};
+type Asset=number|string;
 type Product={
  slug:string;name:string;category:string;eyebrow:string;subtitle:string;
- volume:string;unit:string;cover:number|null;photos:number[];kits:Kit[];benefits:string[];
+ volume:string;unit:string;cover:Asset|null;photos:Asset[];kits:Kit[];benefits:string[];
  rating:{score:number;count:number}|null;
  tabs:{descricao:string;ingredientes:{name:string;desc:string}[];uso:[string,string][];entrega:string};
  source:string|null;
@@ -39,29 +40,34 @@ const products:Product[]=[{
   entrega:'Frete grátis para todo o Brasil. A entrega acontece em 14 a 28 dias úteis após a confirmação do pagamento.'},
  source:'https://doctoraltheaglobal.com/products/345-relief-cream'
 },{
- slug:'segundo',
- name:'Segundo produto',
- category:'Categoria a definir',
- eyebrow:'EM PREPARAÇÃO',
- subtitle:'Nome e apresentação a definir.',
- volume:'Volume a definir',
- unit:'—',
- cover:null,
- photos:[],
- kits:[],
- benefits:[],
- rating:null,
+ slug:'147-barrier-cream',
+ name:'147 Barrier Cream',
+ category:'Creme reparador da barreira',
+ eyebrow:'BARREIRA & HIDRATAÇÃO PROFUNDA',
+ subtitle:'Conforto profundo para uma barreira fortalecida.',
+ volume:'50 ml · 1,69 fl.oz',
+ unit:'50 ml',
+ cover:'147-2.webp',
+ photos:['147-2.webp','147-4.webp','147-3.webp','147-1.webp','147-5.webp','147-6.webp','147-7.webp','147-8.webp'],
+ kits:[{qty:1,name:'O seu primeiro ritual',price:257},{qty:2,name:'Cuidado em dobro',price:469,popular:true},{qty:3,name:'Seu ritual completo',price:659}],
+ benefits:['Suporte à barreira de umidade','Hidratação profunda e duradoura','Conforto para a pele ressecada','Textura rica, sem acabamento oleoso'],
+ rating:{score:4.9,count:297},
  tabs:{
-  descricao:'Este espaço está reservado para o segundo produto da linha. Nome, descrição, ingredientes, fotos e valores serão preenchidos quando as informações forem confirmadas.',
-  ingredientes:[],
-  uso:[],
-  entrega:'As condições de entrega serão informadas junto com as do restante da linha.'},
- source:null
+  descricao:'Creme hidratante diário desenvolvido para peles secas, desidratadas, sensíveis ou com a barreira fragilizada. Segundo a Dr. Althea, sua textura rica e confortável ajuda a repor e reter a umidade, reduzindo a sensação de repuxamento, aspereza e desconforto sem deixar acabamento oleoso.',
+  ingredientes:[
+   {name:'Ceramida NP',desc:'Ingrediente presente na fórmula para o cuidado da barreira de umidade.'},
+   {name:'Ectoína + esqualano',desc:'Combinados a ingredientes nutritivos e hidratantes para o conforto da pele.'},
+   {name:'Complexo de ácido hialurônico',desc:'Sete formas de ácido hialurônico ajudam a oferecer hidratação em diferentes níveis.'},
+   {name:'Centella + beta-glucana',desc:'Também integram a fórmula de cuidado para peles sensibilizadas.'}],
+  uso:[['Finalize a rotina','Depois das etapas mais leves, aplique uma quantidade adequada no rosto.'],['Espalhe com delicadeza','Distribua o creme de maneira uniforme, sem esfregar excessivamente.'],['Ajude na absorção','Pressione suavemente a pele até o produto ser absorvido.']],
+  entrega:'Frete grátis para todo o Brasil. A entrega acontece em 14 a 28 dias úteis após a confirmação do pagamento.'},
+ source:'https://doctoraltheaglobal.com/products/dralthea-147_barrier_cream'
 }];
 const faq:[string,string][]=[
- ['Como incluir na minha rotina?','Aplique na etapa de hidratação, sobre a pele limpa, e espalhe suavemente até a absorção. Siga as orientações da embalagem.'],
+ ['Como escolher entre o 345 e o 147?','O 345 Relief Cream tem proposta de hidratação leve para o cuidado diário. O 147 Barrier Cream oferece uma textura mais rica para pele seca, desidratada ou com a barreira sensibilizada.'],
  ['Qual é a textura do 345 Relief Cream?','Um creme de textura leve, pensado para a hidratação diária.'],
- ['O que vem em cada kit?','As opções desta prévia apresentam 1, 2 ou 3 unidades de 50 ml. Quantidades e preços comerciais ainda serão confirmados.'],
+ ['Qual é a textura do 147 Barrier Cream?','Uma textura rica e confortável, especialmente indicada pelo fabricante para a rotina noturna, períodos frios ou momentos de maior ressecamento.'],
+ ['O que vem em cada kit?','As opções desta prévia apresentam 1, 2 ou 3 unidades de 50 ml do produto escolhido. Quantidades e preços comerciais ainda serão confirmados.'],
  ['Quando poderei comprar?','Estamos preparando a loja. A disponibilidade, os valores finais e as condições de entrega serão informados antes da abertura das vendas.']];
 const gallery=[{id:2,label:'Um momento de pausa'},{id:7,label:'Essencial para levar'},{id:8,label:'Sempre por perto'},{id:4,label:'A delicadeza da textura'},{id:9,label:'Cuidado que acompanha você'}];
 const institutional=['Sobre Nós','Trocas e Devoluções','Política de Privacidade','Política de Frete','Política de Cookies','Termos de Serviço','Aviso Legal'];
@@ -78,12 +84,13 @@ const info:Record<string,string>={
 'Falar com consultor':'O contato do consultor será disponibilizado em breve.',
 'Formas de Pagamento':'Pix e cartão em até 3x sem juros. As bandeiras aceitas e as demais formas serão confirmadas após a configuração da loja.',
 'Rastrear pedido':'O acesso ao rastreamento será disponibilizado após a definição da operação de entrega.'};
-function Shot({n,alt,priority}:{n:number|null;alt:string;priority?:boolean}){
+const assetSrc=(asset:Asset)=>typeof asset==='number'?`/images/campaign-${asset}.png`:`/images/${asset}`;
+function Shot({n,alt,priority}:{n:Asset|null;alt:string;priority?:boolean}){
  if(n===null) return <div className="photo-pending"><span>Foto a definir</span></div>;
- return <img src={`/images/campaign-${n}.png`} alt={alt} loading={priority?undefined:'lazy'} fetchPriority={priority?'high':undefined} width="1122" height="1402"/>;
+ return <img src={assetSrc(n)} alt={alt} loading={priority?undefined:'lazy'} fetchPriority={priority?'high':undefined} width="1122" height="1402"/>;
 }
-function Rating({score,count}:{score:number;count:number}){
- return <div className="rating"><span className="rating-stars" aria-hidden="true">{[1,2,3,4,5].map(n=><Star key={n} size={14} className={n<=Math.round(score)?'on':''}/>)}</span><strong>{score.toLocaleString('pt-BR',{minimumFractionDigits:1})}/5</strong><a className="rating-count" href="#avaliacoes">{count.toLocaleString('pt-BR')} avaliações</a></div>;
+function Rating({score,count,href='#avaliacoes'}:{score:number;count:number;href?:string}){
+ return <div className="rating"><span className="rating-stars" aria-hidden="true">{[1,2,3,4,5].map(n=><Star key={n} size={14} className={n<=Math.round(score)?'on':''}/>)}</span><strong>{score.toLocaleString('pt-BR',{minimumFractionDigits:1})}/5</strong><a className="rating-count" href={href} target={href.startsWith('http')?'_blank':undefined} rel={href.startsWith('http')?'noreferrer':undefined}>{count.toLocaleString('pt-BR')} avaliações</a></div>;
 }
 const tabDefs=[{id:'descricao',label:'DESCRIÇÃO'},{id:'ingredientes',label:'INGREDIENTES'},{id:'uso',label:'MODO DE USO'},{id:'entrega',label:'ENTREGA'}];
 // Prefixo obrigatorio: slugs como "345-relief-cream" comecam com digito e viram
@@ -98,10 +105,10 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
  // Economia calculada sobre o preco unitario real; nao existe preco "de" para 1 unidade.
  const unitRef=p.kits[0]?.price??0;
  return <section className="pdp" id={anchor(p.slug)}>
- <div className="pdp-media"><div className="pdp-visual"><span className="eyebrow image-label">{p.eyebrow}</span><Shot n={photo} alt={`${p.name} — fotografia do produto`}/></div>{p.photos.length>1&&<div className="thumbnails" aria-label="Fotos do produto">{p.photos.map((n,i)=><button key={n} onClick={()=>setPhoto(n)} aria-label={`Ver foto ${i+1} do produto`} aria-pressed={photo===n}><img src={`/images/campaign-${n}.png`} alt="" loading="lazy" width="1122" height="1402"/></button>)}</div>}</div>
+ <div className="pdp-media"><div className="pdp-visual"><span className="eyebrow image-label">{p.eyebrow}</span><Shot n={photo} alt={`${p.name} — fotografia do produto`}/></div>{p.photos.length>1&&<div className="thumbnails" aria-label="Fotos do produto">{p.photos.map((n,i)=><button key={n} onClick={()=>setPhoto(n)} aria-label={`Ver foto ${i+1} do produto`} aria-pressed={photo===n}><img src={assetSrc(n)} alt="" loading="lazy" width="1122" height="1402"/></button>)}</div>}</div>
  <div className="pdp-info">
   <span className="pdp-crumb">DR. ALTHEA · {p.category}</span>
-  {p.rating&&<Rating score={p.rating.score} count={p.rating.count}/>}
+  {p.rating&&<Rating score={p.rating.score} count={p.rating.count} href={p.source??'#avaliacoes'}/>}
   <h2>{p.name}</h2>
   <p className="pdp-subtitle">{p.subtitle} <span>{p.volume}</span></p>
   {p.benefits.length>0?<div className="pdp-benefits" aria-label="Principais benefícios">{p.benefits.map((b,i)=><div key={b}><span>0{i+1}</span><p>{b}</p></div>)}</div>:<p className="pending-note">Benefícios a preencher.</p>}
@@ -146,7 +153,7 @@ export default function Home(){
  <header className="header"><nav aria-label="Navegação principal"><a href="#produtos">Produtos</a><a href="#perguntas">Perguntas</a></nav><a className="brand" href="#inicio" aria-label="Dr. Althea — início"><img src="/images/logo.webp" alt="Dr. Althea" width="3545" height="1182"/></a><button className="cart-open" onClick={()=>setCartOpen(true)} aria-label={`Abrir carrinho, ${itens} ${itens===1?'item':'itens'}`}><ShoppingBag size={16}/> CARRINHO <span className="cart-count">{itens}</span></button></header>
  <main id="inicio">
  <section className="hero"><div className="hero-copy"><span className="eyebrow">DR. ALTHEA / DAILY SKIN ESSENTIALS</span><div><h1>Um respiro.<br/>Para a sua pele.</h1><p>Hidratação leve. Cuidado delicado.<br/>Redescubra a beleza de uma rotina simples.</p><a className="button" href="#produtos">Conheça a linha <ArrowUpRight size={18}/></a></div><a className="scroll-link" href="#produtos"><ArrowDown size={15}/> O cuidado começa aqui</a></div><div className="hero-photo hero-campaign"><img src="/images/campaign-9.png" alt="Modelo segurando o 345 Relief Cream em uma composição clara" fetchPriority="high" width="1122" height="1402"/><div className="photo-caption"><span>DAILY SKIN ESSENTIALS</span><span>O ESSENCIAL, TODOS OS DIAS.</span></div></div></section>
- <section className="catalog" id="produtos"><div className="catalog-head"><span className="eyebrow">A LINHA</span><h2>Produtos</h2></div><div className="catalog-grid" style={{'--cols':Math.min(3,products.length)} as React.CSSProperties}>{products.map(p=><article key={p.slug} className="catalog-card"><a className="catalog-visual" href={`#${anchor(p.slug)}`} aria-label={`Ver ${p.name}`}><Shot n={p.cover} alt={`${p.name} — capa`}/></a><div className="catalog-info"><div className="catalog-line"><a href={`#${anchor(p.slug)}`}>{p.name}</a><span>{p.kits.length>0?money(p.kits[0].price):'—'}</span></div><p>{p.category}</p>{p.rating&&<Rating score={p.rating.score} count={p.rating.count}/>}</div>{p.kits.length>0?<button className="catalog-button" onClick={()=>add(p,p.kits.find(k=>k.popular)??p.kits[0])}>ADICIONAR AO CARRINHO <ArrowRight size={14}/></button>:<a className="catalog-button pending" href={`#${anchor(p.slug)}`}>EM BREVE <ArrowRight size={14}/></a>}</article>)}</div><p className="section-note">Prévia de design · valores fictícios, compra indisponível.</p></section>
+ <section className="catalog" id="produtos"><div className="catalog-head"><span className="eyebrow">A LINHA</span><h2>Produtos</h2></div><div className="catalog-grid" style={{'--cols':Math.min(3,products.length)} as React.CSSProperties}>{products.map(p=><article key={p.slug} className="catalog-card"><a className="catalog-visual" href={`#${anchor(p.slug)}`} aria-label={`Ver ${p.name}`}><Shot n={p.cover} alt={`${p.name} — capa`}/></a><div className="catalog-info"><div className="catalog-line"><a href={`#${anchor(p.slug)}`}>{p.name}</a><span>{p.kits.length>0?money(p.kits[0].price):'—'}</span></div><p>{p.category}</p>{p.rating&&<Rating score={p.rating.score} count={p.rating.count} href={p.source??'#avaliacoes'}/>}</div>{p.kits.length>0?<button className="catalog-button" onClick={()=>add(p,p.kits.find(k=>k.popular)??p.kits[0])}>ADICIONAR AO CARRINHO <ArrowRight size={14}/></button>:<a className="catalog-button pending" href={`#${anchor(p.slug)}`}>EM BREVE <ArrowRight size={14}/></a>}</article>)}</div><p className="section-note">Prévia de design · valores fictícios, compra indisponível.</p></section>
  {products.map(p=><ProductDetail key={p.slug} p={p} onAdd={add}/>)}
  <section className="ugc section" id="experiencias"><div className="section-heading"><div><span className="eyebrow">NA VIDA, NA ROTINA</span><h2>Pequenos gestos.<br/>Diferentes momentos.</h2></div><p>O cuidado encontra espaço no seu dia.</p></div><div className="ugc-grid">{[{n:6,title:'O toque do cuidado',sub:'Um momento para a pele'},{n:8,title:'Vai com você',sub:'O essencial na sua nécessaire'},{n:9,title:'Seu ritual, seu tempo',sub:'Beleza nos pequenos gestos'}].map(x=><figure key={x.n}><img src={`/images/campaign-${x.n}.png`} alt={x.title} loading="lazy" width="1122" height="1402"/><figcaption><h3>{x.title}</h3><p>{x.sub}</p></figcaption></figure>)}</div><p className="section-note">Imagens editoriais. Vídeos de experiências em breve.</p></section>
  <section className="faq section" id="perguntas"><div><span className="eyebrow">SUAS PERGUNTAS</span><h2>Conheça melhor.<br/>Cuide com calma.</h2></div><div className="questions">{faq.map(([q,a])=><details key={q}><summary>{q}<Plus size={18}/></summary><p>{a}</p></details>)}</div></section>

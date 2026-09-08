@@ -1974,6 +1974,14 @@ figure {
     flex-direction: row;
     gap: 9px;
     margin-top: 10px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+  .pdp-media > .thumbnails::-webkit-scrollbar {
+    display: none;
   }
   .pdp-media > .thumbnails button {
     width: 62px;

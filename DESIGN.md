@@ -92,3 +92,7 @@ A hierarquia separa claramente a apresentação do produto, os benefícios, a es
 
 ## Décima segunda versão — uso ampliado da largura
 A seção do produto passou de um teto de 1440px para 1800px e agora fica centralizada. As margens laterais usam uma medida fluida entre 24px e 72px, o espaço entre as colunas foi reduzido e a coluna de compra pode chegar a 760px. Assim, fotografia e conteúdo aproveitam melhor monitores largos sem encostar nas bordas. Os limites já definidos para tablet e celular continuam preservados.
+
+## Décima terceira versão — 147 Barrier Cream
+O segundo espaço reservado do catálogo foi preenchido com o 147 Barrier Cream. A galeria usa as oito imagens fornecidas pelo usuário, com a fotografia limpa do tubo como capa e principal, seguida por aplicação, textura e cenas de rotina. O componente de imagem agora aceita tanto a numeração da campanha original quanto nomes próprios de arquivo, permitindo manter os materiais de cada produto organizados.
+Nome, volume, benefícios, ingredientes centrais, modo de uso e avaliação foram baseados na página oficial da Dr. Althea. Os kits de 1, 2 e 3 unidades continuam explicitamente apresentados como valores fictícios nesta prévia e precisam de confirmação comercial antes da abertura da loja.
