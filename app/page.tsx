@@ -116,7 +116,6 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
    <Button className="button pdp-button" onClick={()=>onAdd(p,kit!)}>ADICIONAR AO CARRINHO</Button>
    <div className="pdp-terms"><span><CreditCard size={15}/> em até <b>{loja.parcelas}x</b> no cartão</span><span><Truck size={15}/> <b>Frete grátis</b> · entrega em 14 a 28 dias úteis</span></div>
    <p className="demo-label">Prévia de design · valores fictícios, compra indisponível.</p></>:<p className="pending-note">Kits, volumes e valores serão definidos junto com as informações deste produto.</p>}
- </div>
   <div className="pdp-tabs">
    <div className="tab-list" role="tablist" aria-label={`Informações sobre ${p.name}`}>{tabDefs.map(t=><button key={t.id} role="tab" id={`${anchor(p.slug)}-tab-${t.id}`} aria-selected={tab===t.id} aria-controls={`${anchor(p.slug)}-panel-${t.id}`} className={tab===t.id?'active':''} onClick={()=>setTab(t.id)}>{t.label}</button>)}</div>
    {tabDefs.map(t=><div key={t.id} role="tabpanel" id={`${anchor(p.slug)}-panel-${t.id}`} aria-labelledby={`${anchor(p.slug)}-tab-${t.id}`} className="tab-panel" hidden={tab!==t.id}>
@@ -126,6 +125,7 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
     {t.id==='entrega'&&<p>{p.tabs.entrega}</p>}
    </div>)}
    {p.source&&<a className="source-link" href={p.source} target="_blank" rel="noreferrer">Informações do fabricante <ArrowUpRight size={13}/></a>}
+  </div>
   </div>
  </section>;
 }

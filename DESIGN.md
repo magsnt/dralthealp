@@ -78,3 +78,9 @@ Mudanças:
 - O conteúdo das abas de ingredientes e modo de uso virou grade de 3 colunas: os 3 itens ficam lado a lado em vez de empilhados. Parágrafos de texto corrido ganharam max-width de 820px para não formar linhas longas demais.
 - Rótulo do kit ganhou white-space:nowrap no desktop para o selo de economia não descer de linha; no mobile volta a quebrar normalmente.
 No mobile nada disso se aplica: as listas das abas voltam a empilhar em coluna única e a ordem segue foto, informação e abas.
+
+## Décima versão — correção da faixa de abas e pesos de fonte
+Duas correções de coisas que eu tinha introduzido por conta própria na versão anterior.
+As abas de largura total quebraram a composição: descoladas da coluna que descrevem, os rótulos foram parar embaixo da foto, num vão de 1338px com o texto limitado a 820px. Geometricamente estava correto, visualmente não. Voltaram para dentro de .pdp-info, junto com as listas de ingredientes e modo de uso, que deixaram de ser grade de 3 colunas e voltaram a empilhar.
+Ganho da versão anterior que foi mantido: a coluna de informação segue larga (680px a 1600px, contra os 422px originais), então as pílulas e as linhas de kit continuam sem quebrar.
+Pesos de fonte na área dos kits voltaram ao padrão da página. Eu tinha usado font-weight 600 e letter-spacing negativo próprio nos rótulos, preços, selos e na nota da avaliação; a página usa 400 para corpo e 500 para destaque (mesmo peso do h3 do rodapé), sempre com letter-spacing normal. Nenhuma família de fonte tinha sido trocada: a diferença percebida era peso mais espaçamento. Não existe mais nenhum font-weight 600 no CSS.
