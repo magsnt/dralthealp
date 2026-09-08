@@ -2021,10 +2021,18 @@ figure {
   .pdp {
     grid-template-columns: 1fr;
     gap: 38px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding-inline: 20px;
     padding-bottom: 70px;
+    overflow: clip;
   }
   .pdp-media {
     position: static;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
   .pdp h2 {
     font-size: 30px;
@@ -2042,6 +2050,7 @@ figure {
     margin-top: 10px;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
     scrollbar-width: none;
@@ -2051,6 +2060,13 @@ figure {
   }
   .pdp-media > .thumbnails button {
     width: 62px;
+    min-width: 62px;
+    flex: 0 0 62px;
+  }
+  .pdp-info {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
   .pdp-benefits {
     gap: 0 18px;
