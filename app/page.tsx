@@ -7,13 +7,14 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 const money=(n:number)=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-const loja={pixOff:30,parcelas:3,frete:'Frete grátis · entrega em 14 a 28 dias úteis'};
+const loja={frete:'Frete e prazo calculados no checkout'};
 type Kit={qty:number;name:string;price:number;popular?:boolean};
 type Asset=number|string;
 type Product={
  slug:string;name:string;category:string;eyebrow:string;subtitle:string;
  volume:string;unit:string;cover:Asset|null;photos:Asset[];kits:Kit[];benefits:string[];
  rating:{score:number;count:number}|null;
+ shopifyVariantId:string|null;available:boolean;
  tabs:{descricao:string;ingredientes:{name:string;desc:string}[];uso:[string,string][];entrega:string};
  source:string|null;
 };
@@ -27,9 +28,11 @@ const products:Product[]=[{
  unit:'50 ml',
  cover:3,
  photos:[3,1,4,5],
- kits:[{qty:1,name:'O seu primeiro ritual',price:247},{qty:2,name:'Cuidado em dobro',price:449,popular:true},{qty:3,name:'Seu ritual completo',price:629}],
+ kits:[{qty:1,name:'O seu primeiro ritual',price:247,popular:true},{qty:2,name:'Cuidado em dobro',price:494},{qty:3,name:'Seu ritual completo',price:741}],
  benefits:['Hidratação equilibrada','Barreira de umidade','Textura mais suave','Textura leve, sem sensação pesada'],
  rating:{score:4.9,count:1091},
+ shopifyVariantId:null,
+ available:false,
  tabs:{
   descricao:'Hidratante facial de textura leve para uma rotina de cuidado com a pele sensível. Niacinamida, pantenol e ceramida NP em uma fórmula para todos os dias. Segundo a Dr. Althea, a fórmula combina hidratação, suporte à barreira de umidade e cuidado com a aparência da textura da pele.',
   ingredientes:[
@@ -49,9 +52,11 @@ const products:Product[]=[{
  unit:'50 ml',
  cover:'147-2.webp',
  photos:['147-2.webp','147-4.webp','147-3.webp','147-1.webp','147-5.webp','147-6.webp','147-7.webp','147-8.webp'],
- kits:[{qty:1,name:'O seu primeiro ritual',price:257},{qty:2,name:'Cuidado em dobro',price:469,popular:true},{qty:3,name:'Seu ritual completo',price:659}],
+ kits:[{qty:1,name:'O seu primeiro ritual',price:257,popular:true},{qty:2,name:'Cuidado em dobro',price:514},{qty:3,name:'Seu ritual completo',price:771}],
  benefits:['Suporte à barreira de umidade','Hidratação profunda e duradoura','Conforto para a pele ressecada','Textura rica, sem acabamento oleoso'],
  rating:{score:4.9,count:297},
+ shopifyVariantId:'48888637915293',
+ available:true,
  tabs:{
   descricao:'Creme hidratante diário desenvolvido para peles secas, desidratadas, sensíveis ou com a barreira fragilizada. Segundo a Dr. Althea, sua textura rica e confortável ajuda a repor e reter a umidade, reduzindo a sensação de repuxamento, aspereza e desconforto sem deixar acabamento oleoso.',
   ingredientes:[
@@ -67,8 +72,8 @@ const faq:[string,string][]=[
  ['Como escolher entre o 345 e o 147?','O 345 Relief Cream tem proposta de hidratação leve para o cuidado diário. O 147 Barrier Cream oferece uma textura mais rica para pele seca, desidratada ou com a barreira sensibilizada.'],
  ['Qual é a textura do 345 Relief Cream?','Um creme de textura leve, pensado para a hidratação diária.'],
  ['Qual é a textura do 147 Barrier Cream?','Uma textura rica e confortável, especialmente indicada pelo fabricante para a rotina noturna, períodos frios ou momentos de maior ressecamento.'],
- ['O que vem em cada kit?','As opções desta prévia apresentam 1, 2 ou 3 unidades de 50 ml do produto escolhido. Quantidades e preços comerciais ainda serão confirmados.'],
- ['Quando poderei comprar?','Estamos preparando a loja. A disponibilidade, os valores finais e as condições de entrega serão informados antes da abertura das vendas.']];
+ ['O que vem em cada kit?','Você pode escolher 1, 2 ou 3 unidades de 50 ml do produto disponível.'],
+ ['Como finalizo a compra?','Depois de escolher a quantidade, você será direcionado ao checkout seguro da Shopify para informar entrega e pagamento.']];
 const gallery=[{id:2,label:'Um momento de pausa'},{id:7,label:'Essencial para levar'},{id:8,label:'Sempre por perto'},{id:4,label:'A delicadeza da textura'},{id:9,label:'Cuidado que acompanha você'}];
 const reviewSamples=[
  {name:'Marina A.',date:'12/08/2026',rating:5,title:'Conforto desde a aplicação',text:'A textura parece rica, mas a apresentação continua delicada. Consigo imaginar o 147 como a última etapa da minha rotina noturna.',product:'147 Barrier Cream'},
@@ -123,16 +128,15 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
   <p className="pdp-subtitle">{p.subtitle} <span>{p.volume}</span></p>
   {p.benefits.length>0?<div className="pdp-benefits" aria-label="Principais benefícios">{p.benefits.map((b,i)=><div key={b}><span>0{i+1}</span><p>{b}</p></div>)}</div>:<p className="pending-note">Benefícios a preencher.</p>}
   {p.kits.length>0?<>
-   <div className="kit-heading"><div><span className="eyebrow">ESCOLHA SEU RITUAL</span><p>Quanto mais unidades, maior a economia.</p></div><span>{p.unit} por unidade</span></div>
+   <div className="kit-heading"><div><span className="eyebrow">ESCOLHA SEU RITUAL</span><p>Selecione a quantidade desejada.</p></div><span>{p.unit} por unidade</span></div>
    <RadioGroup value={selected} onValueChange={v=>setSelected(String(v))} aria-label="Escolha um kit ilustrativo" className="kit-options">{p.kits.map(k=>{const de=unitRef*k.qty,off=de-k.price;return <label className={`kit-option ${selected===String(k.qty)?'selected':''}`} key={k.qty}>
     {k.popular&&<i className="kit-badge">ESCOLHA FAVORITA</i>}
     <RadioGroupItem value={String(k.qty)} aria-label={`${k.qty} ${k.qty===1?'unidade':'unidades'}`}/>
-    <span className="kit-label"><strong>{k.qty} {k.qty===1?'Unidade':'Unidades'}{off>0&&<i className="kit-off">Economize {money(off)}</i>}</strong><small>no Pix: <b>{money(k.price-loja.pixOff)}</b></small></span>
+    <span className="kit-label"><strong>{k.qty} {k.qty===1?'Unidade':'Unidades'}{off>0&&<i className="kit-off">Economize {money(off)}</i>}</strong><small>{money(k.price/k.qty)} por unidade</small></span>
     <span className="kit-price"><strong>{money(k.price)}</strong>{off>0&&<s>{money(de)}</s>}</span></label>})}</RadioGroup>
-   <p className="pix-strip"><Sparkles size={15}/> Pagando no <b>Pix</b> você economiza <b>{money(loja.pixOff)}</b></p>
+   {p.available?<><p className="pix-strip"><Sparkles size={15}/> Compra processada com segurança pela <b>Shopify</b></p>
    <Button className="button pdp-button" onClick={()=>onAdd(p,kit!)}>ADICIONAR AO CARRINHO</Button>
-   <div className="pdp-terms"><span><CreditCard size={15}/> em até <b>{loja.parcelas}x</b> no cartão</span><span><Truck size={15}/> <b>Frete grátis</b> · entrega em 14 a 28 dias úteis</span></div>
-   <p className="demo-label">Prévia de design · valores fictícios, compra indisponível.</p></>:<p className="pending-note">Kits, volumes e valores serão definidos junto com as informações deste produto.</p>}
+   <div className="pdp-terms"><span><CreditCard size={15}/> pagamento no checkout</span><span><Truck size={15}/> {loja.frete}</span></div></>:<p className="pending-note">Produto esgotado no momento.</p>}</>:<p className="pending-note">Produto indisponível no momento.</p>}
   <div className="pdp-tabs">
    <div className="tab-list" role="tablist" aria-label={`Informações sobre ${p.name}`}>{tabDefs.map(t=><button key={t.id} role="tab" id={`${anchor(p.slug)}-tab-${t.id}`} aria-selected={tab===t.id} aria-controls={`${anchor(p.slug)}-panel-${t.id}`} className={tab===t.id?'active':''} onClick={()=>setTab(t.id)}>{t.label}</button>)}</div>
    {tabDefs.map(t=><div key={t.id} role="tabpanel" id={`${anchor(p.slug)}-panel-${t.id}`} aria-labelledby={`${anchor(p.slug)}-tab-${t.id}`} className="tab-panel" hidden={tab!==t.id}>
@@ -158,12 +162,16 @@ export default function Home(){
  const setN=(slug:string,qty:number,n:number)=>setLines(prev=>n<=0?prev.filter(l=>!(l.slug===slug&&l.qty===qty)):prev.map(l=>l.slug===slug&&l.qty===qty?{...l,n}:l));
  const itens=lines.reduce((s,l)=>s+l.n,0);
  const subtotal=lines.reduce((s,l)=>s+find(l.slug,l.qty).price*l.n,0);
+ const checkout=()=>{
+  const items=lines.map(l=>{const p=products.find(x=>x.slug===l.slug)!;return p.shopifyVariantId?`${p.shopifyVariantId}:${l.qty*l.n}`:null}).filter(Boolean).join(',');
+  if(items) window.location.href=`https://evg0ar-mr.myshopify.com/cart/${items}`;
+ };
  return <>
  <div className="announcement">Cuidado coreano. Um momento só seu.</div>
  <header className="header"><nav aria-label="Navegação principal"><a href="#produtos">Produtos</a><a href="#perguntas">Perguntas</a></nav><a className="brand" href="#inicio" aria-label="Dr. Althea — início"><img src="/images/logo.webp" alt="Dr. Althea" width="3545" height="1182"/></a><button className="cart-open" onClick={()=>setCartOpen(true)} aria-label={`Abrir carrinho, ${itens} ${itens===1?'item':'itens'}`}><ShoppingBag size={16}/> CARRINHO <span className="cart-count">{itens}</span></button></header>
  <main id="inicio">
  <section className="hero"><div className="hero-copy"><span className="eyebrow">DR. ALTHEA / DAILY SKIN ESSENTIALS</span><div><h1>Um respiro.<br/>Para a sua pele.</h1><p>Hidratação leve. Cuidado delicado.<br/>Redescubra a beleza de uma rotina simples.</p><a className="button" href="#produtos">Conheça a linha <ArrowUpRight size={18}/></a></div><a className="scroll-link" href="#produtos"><ArrowDown size={15}/> O cuidado começa aqui</a></div><div className="hero-photo hero-campaign"><img src="/images/campaign-9.png" alt="Modelo segurando o 345 Relief Cream em uma composição clara" fetchPriority="high" width="1122" height="1402"/><div className="photo-caption"><span>DAILY SKIN ESSENTIALS</span><span>O ESSENCIAL, TODOS OS DIAS.</span></div></div></section>
- <section className="catalog" id="produtos"><div className="catalog-head"><span className="eyebrow">A LINHA</span><h2>Produtos</h2></div><div className="catalog-grid" style={{'--cols':Math.min(3,products.length)} as React.CSSProperties}>{products.map(p=><article key={p.slug} className="catalog-card"><a className="catalog-visual" href={`#${anchor(p.slug)}`} aria-label={`Ver ${p.name}`}><Shot n={p.cover} alt={`${p.name} — capa`}/></a><div className="catalog-info"><div className="catalog-line"><a href={`#${anchor(p.slug)}`}>{p.name}</a><span>{p.kits.length>0?money(p.kits[0].price):'—'}</span></div><p>{p.category}</p>{p.rating&&<Rating score={p.rating.score} count={p.rating.count} href={p.source??'#avaliacoes'}/>}</div>{p.kits.length>0?<button className="catalog-button" onClick={()=>add(p,p.kits.find(k=>k.popular)??p.kits[0])}>ADICIONAR AO CARRINHO <ArrowRight size={14}/></button>:<a className="catalog-button pending" href={`#${anchor(p.slug)}`}>EM BREVE <ArrowRight size={14}/></a>}</article>)}</div><p className="section-note">Prévia de design · valores fictícios, compra indisponível.</p></section>
+ <section className="catalog" id="produtos"><div className="catalog-head"><span className="eyebrow">A LINHA</span><h2>Produtos</h2></div><div className="catalog-grid" style={{'--cols':Math.min(3,products.length)} as React.CSSProperties}>{products.map(p=><article key={p.slug} className="catalog-card"><a className="catalog-visual" href={`#${anchor(p.slug)}`} aria-label={`Ver ${p.name}`}><Shot n={p.cover} alt={`${p.name} — capa`}/></a><div className="catalog-info"><div className="catalog-line"><a href={`#${anchor(p.slug)}`}>{p.name}</a><span>{p.kits.length>0?money(p.kits[0].price):'—'}</span></div><p>{p.category}</p>{p.rating&&<Rating score={p.rating.score} count={p.rating.count} href={p.source??'#avaliacoes'}/>}</div>{p.available?<button className="catalog-button" onClick={()=>add(p,p.kits.find(k=>k.popular)??p.kits[0])}>ADICIONAR AO CARRINHO <ArrowRight size={14}/></button>:<a className="catalog-button pending" href={`#${anchor(p.slug)}`}>ESGOTADO <ArrowRight size={14}/></a>}</article>)}</div></section>
  {products.map(p=><ProductDetail key={p.slug} p={p} onAdd={add}/>)}
  <section className="ugc section" id="experiencias"><div className="section-heading"><div><span className="eyebrow">NA VIDA, NA ROTINA</span><h2>Pequenos gestos.<br/>Diferentes momentos.</h2></div><p>O cuidado encontra espaço no seu dia.</p></div><div className="ugc-grid">{[{n:6,title:'O toque do cuidado',sub:'Um momento para a pele'},{n:8,title:'Vai com você',sub:'O essencial na sua nécessaire'},{n:9,title:'Seu ritual, seu tempo',sub:'Beleza nos pequenos gestos'}].map(x=><figure key={x.n}><img src={`/images/campaign-${x.n}.png`} alt={x.title} loading="lazy" width="1122" height="1402"/><figcaption><h3>{x.title}</h3><p>{x.sub}</p></figcaption></figure>)}</div><p className="section-note">Imagens editoriais. Vídeos de experiências em breve.</p></section>
  <section className="faq section" id="perguntas"><div><span className="eyebrow">SUAS PERGUNTAS</span><h2>Conheça melhor.<br/>Cuide com calma.</h2></div><div className="questions">{faq.map(([q,a])=><details key={q}><summary>{q}<Plus size={18}/></summary><p>{a}</p></details>)}</div></section>
@@ -177,8 +185,8 @@ export default function Home(){
    <div className="cart-body"><strong>{p.name}</strong><small>{k.qty} {k.qty===1?'unidade':'unidades'} · {k.name}</small>
     <div className="cart-step"><button onClick={()=>setN(l.slug,l.qty,l.n-1)} aria-label={`Diminuir ${p.name}, kit de ${k.qty}`}><Minus size={13}/></button><span aria-live="polite">{l.n}</span><button onClick={()=>setN(l.slug,l.qty,l.n+1)} aria-label={`Aumentar ${p.name}, kit de ${k.qty}`}><Plus size={13}/></button><button className="cart-remove" onClick={()=>setN(l.slug,l.qty,0)} aria-label={`Remover ${p.name}, kit de ${k.qty}`}><X size={13}/></button></div></div>
    <span className="cart-line-price">{money(k.price*l.n)}</span></div>})}</div>}
-  {lines.length>0&&<div className="cart-foot"><div className="cart-row"><span>Subtotal</span><span>{money(subtotal)}</span></div><div className="cart-row pix"><span>No Pix</span><span>{money(Math.max(0,subtotal-loja.pixOff))}</span></div><p className="cart-note">Economia de {money(loja.pixOff)} no Pix · ou em até {loja.parcelas}x de {money(subtotal/loja.parcelas)} sem juros</p><p className="cart-note">{loja.frete}</p><Button className="button cart-checkout" onClick={()=>{setCartOpen(false);setModal('Finalizar')}}>Finalizar compra <ArrowRight size={16}/></Button><p className="demo-label">Prévia de design · valores fictícios, compra indisponível.</p></div>}
+  {lines.length>0&&<div className="cart-foot"><div className="cart-row"><span>Subtotal</span><span>{money(subtotal)}</span></div><p className="cart-note">{loja.frete}</p><Button className="button cart-checkout" onClick={checkout}>Finalizar compra <ArrowRight size={16}/></Button></div>}
  </SheetContent></Sheet>
- <Dialog open={modal!==null} onOpenChange={open=>{if(!open)setModal(null)}}><DialogContent className="information-dialog"><DialogTitle>{modal==='Finalizar'?'Checkout indisponível':modal}</DialogTitle><DialogDescription>{modal==='Finalizar'?`Seu carrinho soma ${money(subtotal)} (${money(Math.max(0,subtotal-loja.pixOff))} no Pix). Esta é uma prévia de design: os valores são fictícios e não existe checkout. Nenhum pedido ou pagamento será realizado.`:modal?info[modal]:''}</DialogDescription><Button variant="outline" onClick={()=>setModal(null)}>Voltar para a página <ArrowRight size={16}/></Button></DialogContent></Dialog>
+ <Dialog open={modal!==null} onOpenChange={open=>{if(!open)setModal(null)}}><DialogContent className="information-dialog"><DialogTitle>{modal}</DialogTitle><DialogDescription>{modal?info[modal]:''}</DialogDescription><Button variant="outline" onClick={()=>setModal(null)}>Voltar para a página <ArrowRight size={16}/></Button></DialogContent></Dialog>
  </>;
 }
