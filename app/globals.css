@@ -845,10 +845,12 @@ footer {
 }
 .pdp {
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(480px, 1.04fr);
-  gap: clamp(56px, 7vw, 112px);
-  max-width: 1440px;
-  padding: 96px 7% 120px;
+  grid-template-columns: minmax(0, 1fr) minmax(520px, 1.08fr);
+  gap: clamp(48px, 4.5vw, 86px);
+  width: 100%;
+  max-width: 1800px;
+  margin-inline: auto;
+  padding: 96px clamp(24px, 4vw, 72px) 120px;
   align-items: start;
 }
 .pdp-crumb {
@@ -859,7 +861,8 @@ footer {
   text-transform: uppercase;
 }
 .pdp-info {
-  max-width: 650px;
+  width: 100%;
+  max-width: 760px;
   padding-top: 8px;
 }
 .pdp h2 {
