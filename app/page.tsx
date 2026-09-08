@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { ArrowUpRight, ArrowDown, ArrowRight, Plus, Minus, Star, X, ShoppingBag, Check, Sparkles, CreditCard, Truck } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowRight, Plus, Minus, Star, X, ShoppingBag, Sparkles, CreditCard, Truck } from 'lucide-react';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -104,11 +104,11 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
   {p.rating&&<Rating score={p.rating.score} count={p.rating.count}/>}
   <h2>{p.name}</h2>
   <p className="pdp-subtitle">{p.subtitle} <span>{p.volume}</span></p>
-  {p.benefits.length>0?<ul className="pdp-pills">{p.benefits.map(b=><li key={b}><Check size={13}/>{b}</li>)}</ul>:<p className="pending-note">Benefícios a preencher.</p>}
+  {p.benefits.length>0?<div className="pdp-benefits" aria-label="Principais benefícios">{p.benefits.map((b,i)=><div key={b}><span>0{i+1}</span><p>{b}</p></div>)}</div>:<p className="pending-note">Benefícios a preencher.</p>}
   {p.kits.length>0?<>
-   <p className="kit-divider"><span>COMPRE MAIS, ECONOMIZE MAIS</span></p>
+   <div className="kit-heading"><div><span className="eyebrow">ESCOLHA SEU RITUAL</span><p>Quanto mais unidades, maior a economia.</p></div><span>{p.unit} por unidade</span></div>
    <RadioGroup value={selected} onValueChange={v=>setSelected(String(v))} aria-label="Escolha um kit ilustrativo" className="kit-options">{p.kits.map(k=>{const de=unitRef*k.qty,off=de-k.price;return <label className={`kit-option ${selected===String(k.qty)?'selected':''}`} key={k.qty}>
-    {k.popular&&<i className="kit-badge">MAIS POPULAR</i>}
+    {k.popular&&<i className="kit-badge">ESCOLHA FAVORITA</i>}
     <RadioGroupItem value={String(k.qty)} aria-label={`${k.qty} ${k.qty===1?'unidade':'unidades'}`}/>
     <span className="kit-label"><strong>{k.qty} {k.qty===1?'Unidade':'Unidades'}{off>0&&<i className="kit-off">Economize {money(off)}</i>}</strong><small>no Pix: <b>{money(k.price-loja.pixOff)}</b></small></span>
     <span className="kit-price"><strong>{money(k.price)}</strong>{off>0&&<s>{money(de)}</s>}</span></label>})}</RadioGroup>
