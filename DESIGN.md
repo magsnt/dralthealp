@@ -68,3 +68,13 @@ Contorno de foco e --green (apelido herdado) apontam para a tinta escura, não p
 Colunas do bloco unitário invertidas a pedido do usuário: foto à esquerda, informação e kits à direita. A troca foi feita movendo a div .pdp-media antes da .pdp-info no JSX, e não com order no CSS, para que a ordem de leitura por leitor de tela e a ordem de tabulação acompanhem a ordem visual.
 Como consequência, a regra de mobile que usava order:-1 para subir a foto deixou de ser necessária e foi removida; a foto já vem primeiro pelo DOM.
 Foto ampliada: colunas de 1fr .85fr para 1.1fr 1fr e largura máxima de 1040px para 1120px. A 1280px a foto foi de 373x466 para 464x580, cerca de 55% mais área. A coluna de informação ficou em 422px, ainda suficiente para as linhas de kit sem sobreposição.
+
+## Nona versão — redistribuição horizontal do bloco unitário
+Reclamação do usuário: tudo achatado e verticalizado no desktop, com muito espaço vazio, comportamento que só deveria acontecer no telefone.
+Causa: a coluna de informação tinha 422px. Nessa largura as 4 pílulas de benefício quebravam em 3 linhas e, dentro de cada kit, o selo de economia e a linha do Pix desciam cada um para a sua linha. O teto de 1120px ainda deixava um vazio grande à direita em telas largas.
+Mudanças:
+- Teto do bloco de 1120px para 1560px e proporção invertida, de 1.1fr 1fr para 1fr 1.15fr: a informação passou a ser a coluna larga. A 1900px a coluna foi de 422px para 659px e as pílulas caíram de 3 linhas para 2.
+- As abas saíram de dentro de .pdp-info e viraram faixa de largura total abaixo das duas colunas, com grid-column:1/-1. Isso encurta bastante a pilha vertical da coluna de compra e aproveita a largura sob a foto, como faz a referência Aesop.
+- O conteúdo das abas de ingredientes e modo de uso virou grade de 3 colunas: os 3 itens ficam lado a lado em vez de empilhados. Parágrafos de texto corrido ganharam max-width de 820px para não formar linhas longas demais.
+- Rótulo do kit ganhou white-space:nowrap no desktop para o selo de economia não descer de linha; no mobile volta a quebrar normalmente.
+No mobile nada disso se aplica: as listas das abas voltam a empilhar em coluna única e a ordem segue foto, informação e abas.
