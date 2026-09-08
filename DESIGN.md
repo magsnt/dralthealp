@@ -51,3 +51,15 @@ Cor de destaque trocada de verde para azul, a pedido do usuário, que indicou #9
 Contraste medido no navegador sobre os elementos renderizados: menor valor 5,69:1 (pílulas e selo de economia), maior 16,88:1. Todos passam no AA.
 A variável --green virou apelido de --accent-strong para não quebrar a regra .green herdada, que já não é usada no JSX.
 Bloco do produto unitário reduzido para ficar na mesma escala da seção de produtos: coluna da foto de 1.15fr para .85fr, largura máxima de 1040px acompanhando os 900px da grade, título de 40px para 35px e padding inferior de 110px para 80px. A 1280px a foto foi de 615x769 para 373x466. Os tamanhos de texto ganhos na quinta versão foram mantidos: a redução é de área e espaçamento, não de legibilidade.
+
+## Sétima versão — paleta #abcae9 / #a8bbcc como preenchimento
+O usuário exigiu especificamente #a8bbcc ou #abcae9. Sobre branco elas dão 1,97:1 e 1,70:1, e reprovam como cor de texto do mesmo jeito que o #9ecbec da versão anterior.
+Solução: inverter o papel da cor. Em vez de texto colorido sobre branco, as duas cores viraram preenchimento com tinta escura (#1d1d1b) por cima. As duas cores exatas passaram a aparecer muito mais na página e o contraste subiu.
+- --accent #abcae9: selo de economia, selo MAIS POPULAR, faixa do Pix
+- --accent-2 #a8bbcc: pílulas de benefício, bordas, linha do divisor, sublinhado da aba ativa, borda da miniatura ativa
+- --accent-tint #eaf1fa: fundo do kit selecionado
+- --ink #1d1d1b: todo texto, ícones e estrelas
+Contraste medido no navegador: pílulas 8,56:1, selos e faixa do Pix 9,93:1, kit selecionado 14,84:1, texto sobre branco 7,46:1 a 16,88:1. Todos passam no AAA.
+Estrelas da avaliação voltaram para tinta escura: em #a8bbcc ficavam pálidas demais sobre branco, e a nota também aparece como número.
+Estados que antes dependiam só da cor da borda ganharam reforço: kit selecionado usa fundo, borda de 2px e o radio marcado; aba ativa usa peso do texto mais sublinhado de 2px. Nenhum estado é comunicado apenas por uma borda de baixo contraste.
+Contorno de foco e --green (apelido herdado) apontam para a tinta escura, não para o azul claro, porque foco precisa de no mínimo 3:1.
