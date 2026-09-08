@@ -63,3 +63,8 @@ Contraste medido no navegador: pílulas 8,56:1, selos e faixa do Pix 9,93:1, kit
 Estrelas da avaliação voltaram para tinta escura: em #a8bbcc ficavam pálidas demais sobre branco, e a nota também aparece como número.
 Estados que antes dependiam só da cor da borda ganharam reforço: kit selecionado usa fundo, borda de 2px e o radio marcado; aba ativa usa peso do texto mais sublinhado de 2px. Nenhum estado é comunicado apenas por uma borda de baixo contraste.
 Contorno de foco e --green (apelido herdado) apontam para a tinta escura, não para o azul claro, porque foco precisa de no mínimo 3:1.
+
+## Oitava versão — foto à esquerda e maior
+Colunas do bloco unitário invertidas a pedido do usuário: foto à esquerda, informação e kits à direita. A troca foi feita movendo a div .pdp-media antes da .pdp-info no JSX, e não com order no CSS, para que a ordem de leitura por leitor de tela e a ordem de tabulação acompanhem a ordem visual.
+Como consequência, a regra de mobile que usava order:-1 para subir a foto deixou de ser necessária e foi removida; a foto já vem primeiro pelo DOM.
+Foto ampliada: colunas de 1fr .85fr para 1.1fr 1fr e largura máxima de 1040px para 1120px. A 1280px a foto foi de 373x466 para 464x580, cerca de 55% mais área. A coluna de informação ficou em 422px, ainda suficiente para as linhas de kit sem sobreposição.

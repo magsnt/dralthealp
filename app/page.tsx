@@ -98,6 +98,7 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
  // Economia calculada sobre o preco unitario real; nao existe preco "de" para 1 unidade.
  const unitRef=p.kits[0]?.price??0;
  return <section className="pdp" id={anchor(p.slug)}>
+ <div className="pdp-media"><div className="pdp-visual"><span className="eyebrow image-label">{p.eyebrow}</span><Shot n={photo} alt={`${p.name} — fotografia do produto`}/></div>{p.photos.length>1&&<div className="thumbnails" aria-label="Fotos do produto">{p.photos.map((n,i)=><button key={n} onClick={()=>setPhoto(n)} aria-label={`Ver foto ${i+1} do produto`} aria-pressed={photo===n}><img src={`/images/campaign-${n}.png`} alt="" loading="lazy" width="1122" height="1402"/></button>)}</div>}</div>
  <div className="pdp-info">
   <span className="pdp-crumb">DR. ALTHEA · {p.category}</span>
   {p.rating&&<Rating score={p.rating.score} count={p.rating.count}/>}
@@ -126,7 +127,6 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
    {p.source&&<a className="source-link" href={p.source} target="_blank" rel="noreferrer">Informações do fabricante <ArrowUpRight size={13}/></a>}
   </div>
  </div>
- <div className="pdp-media"><div className="pdp-visual"><span className="eyebrow image-label">{p.eyebrow}</span><Shot n={photo} alt={`${p.name} — fotografia do produto`}/></div>{p.photos.length>1&&<div className="thumbnails" aria-label="Fotos do produto">{p.photos.map((n,i)=><button key={n} onClick={()=>setPhoto(n)} aria-label={`Ver foto ${i+1} do produto`} aria-pressed={photo===n}><img src={`/images/campaign-${n}.png`} alt="" loading="lazy" width="1122" height="1402"/></button>)}</div>}</div>
  </section>;
 }
 export default function Home(){
