@@ -2212,3 +2212,38 @@ figure {
 .review-photos .review-photo:only-child { flex-basis: 100%; }
 .review-photos img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .review-track:hover .review-rail, .review-track:focus-within .review-rail { animation-play-state: paused; }
+
+/* Página de acompanhamento de entregas. */
+.tracking-header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 28px 7vw; border-bottom: 1px solid #e8e8e5; gap: 24px; }
+.tracking-back, .tracking-footer a { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; }
+.tracking-help { justify-self: end; color: #777; font-size: 12px; }
+.tracking-page { background: #fafaf8; padding: 90px 7vw 80px; min-height: 70vh; }
+.tracking-intro { max-width: 780px; margin: 0 auto 44px; text-align: center; }
+.tracking-intro h1 { margin: 24px 0; font-size: clamp(34px, 4.5vw, 58px); font-weight: 400; line-height: 1.15; }
+.tracking-intro > p { max-width: 510px; margin: auto; color: #777; line-height: 1.8; }
+.tracking-panel { max-width: 940px; margin: auto; padding: 36px; border: 1px solid #e8e8e5; border-radius: 12px; background: white; }
+.tracking-panel label { display: block; font-size: 13px; margin-bottom: 12px; }
+.tracking-input-row { display: flex; gap: 12px; }
+.tracking-input-row input { width: 100%; min-width: 0; padding: 0 16px; height: 54px; border: 1px solid #d8d8d4; border-radius: 7px; background: #fafaf8; color: #252525; font-size: 16px; }
+.tracking-input-row input:focus-visible { outline: 2px solid #586a5b; outline-offset: 2px; }
+.tracking-input-row .button { flex-shrink: 0; white-space: nowrap; border-radius: 7px; height: 54px; }
+.tracking-input-row button:disabled { opacity: .6; cursor: wait; }
+.tracking-hint, .tracking-provider { margin-top: 14px; color: #777; font-size: 12px; line-height: 1.7; }
+.tracking-error { padding: 16px; margin-top: 20px; background: #f4f4f2; border-radius: 7px; font-size: 13px; line-height: 1.7; }
+.tracking-error a { display: inline-flex; gap: 8px; align-items: center; margin-top: 10px; text-decoration: underline; }
+.tracking-empty { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 64px 20px 40px; color: #586a5b; }
+.tracking-empty h2 { font-size: 24px; font-weight: 400; margin-top: 22px; color: #252525; }
+.tracking-empty p { margin-top: 14px; color: #777; line-height: 1.8; font-size: 14px; }
+.tracking-result-heading { border-top: 1px solid #e8e8e5; padding-top: 28px; margin-top: 28px; }
+.tracking-result-heading p { margin: 12px 0 22px; font-size: 13px; overflow-wrap: anywhere; }
+.tracking-result { width: 100%; min-height: 640px; overflow: hidden; }
+.tracking-result iframe { max-width: 100%; border: 0; }
+.tracking-faq { max-width: 780px; margin: 44px auto 0; }
+.tracking-faq details { padding: 20px 0; border-bottom: 1px solid #e8e8e5; }
+.tracking-faq summary { cursor: pointer; font-size: 14px; }
+.tracking-faq p { margin-top: 14px; color: #777; font-size: 14px; line-height: 1.8; }
+.tracking-footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px 7vw; font-size: 12px; color: #777; }
+.tracking-spinner { animation: tracking-spin 1s linear infinite; }
+@keyframes tracking-spin { to { transform: rotate(360deg); } }
+@media(max-width:600px) { .tracking-header { padding: 24px 6vw; grid-template-columns: 1fr auto; gap: 16px; } .tracking-header .brand { width: 140px; } .tracking-help { display: none; } .tracking-page { padding: 64px 5vw; } .tracking-panel { padding: 24px 18px; } .tracking-input-row { flex-direction: column; } .tracking-input-row .button { justify-content: center; } .tracking-empty { padding: 44px 0 20px; } .tracking-empty h2 { font-size: 22px; } .tracking-footer { flex-direction: column; } }
+@media(prefers-reduced-motion:reduce) { .tracking-spinner { animation: none; } }
