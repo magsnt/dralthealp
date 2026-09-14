@@ -2208,7 +2208,7 @@ figure {
 .review-stars { flex-shrink: 0; }
 .review-rail blockquote { flex: 1; min-height: 0; margin: 12px 0; overflow-y: auto; scrollbar-width: thin; }
 .review-photos { display: flex; flex-shrink: 0; gap: 8px; height: 128px; margin-top: 8px; overflow-x: auto; scrollbar-width: thin; }
-.review-photos a { display: block; flex: 0 0 128px; overflow: hidden; border-radius: 6px; background: #f4f4f2; }
-.review-photos a:only-child { flex-basis: 100%; }
+.review-photos .review-photo { display: block; flex: 0 0 128px; overflow: hidden; border-radius: 6px; background: #f4f4f2; }
+.review-photos .review-photo:only-child { flex-basis: 100%; }
 .review-photos img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .review-track:hover .review-rail, .review-track:focus-within .review-rail { animation-play-state: paused; }
