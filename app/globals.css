@@ -2198,3 +2198,12 @@ figure {
     display: none;
   }
 }
+
+/* Fotografias enviadas nas avaliações importadas. */
+.review-rail { align-items: flex-start; }
+.review-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+.review-photos a { display: block; overflow: hidden; border-radius: 6px; background: #f4f4f2; }
+.review-photos a:first-child { grid-column: 1 / -1; }
+.review-photos img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.review-photos a:first-child img { aspect-ratio: 4 / 3; }
+.review-track:hover .review-rail, .review-track:focus-within .review-rail { animation-play-state: paused; }

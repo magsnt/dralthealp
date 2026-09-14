@@ -3,564 +3,732 @@
     "name": "Magnólia Agostinho",
     "rating": 5,
     "text": "excelente",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A199a9c6823654efe83eae81d2388ed5bx.jpg"
+    ]
   },
   {
     "name": "Tato Nunes",
     "rating": 5,
     "text": "Bonito, mas espesso para pele seca.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A60bf611f969a4380aba6b34726fc6e20i.jpg"
+    ]
   },
   {
     "name": "Dado Ribeiro",
     "rating": 4,
     "text": "Avisarei se funcionar, de qualquer forma, recebi em boas condições apesar do longo transporte.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A2fab3e259d124f589d105af04c8fbda9p.jpg"
+    ]
   },
   {
     "name": "Quintino Sales",
     "rating": 5,
     "text": "excelente",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A199a9c6823654efe83eae81d2388ed5bx.jpg"
+    ]
   },
   {
     "name": "Adriana Pires",
     "rating": 5,
     "text": "Bonito, mas espesso para pele seca.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A60bf611f969a4380aba6b34726fc6e20i.jpg"
+    ]
   },
   {
     "name": "Adely Salazar",
     "rating": 4,
     "text": "Avisarei se funcionar, de qualquer forma, recebi em boas condições apesar do longo transporte.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A2fab3e259d124f589d105af04c8fbda9p.jpg"
+    ]
   },
   {
     "name": "The Góis",
     "rating": 5,
     "text": "Super hidratante, excelente!! Adorei, super recomendo.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Dede da Conceição",
     "rating": 5,
     "text": "Produto muito bom. Usei por alguns dias no frio do inverno e adorei.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Jessica Taveira",
     "rating": 5,
     "text": "Eu recomendo.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Elisabeth Ribeiro",
     "rating": 5,
     "text": "satisfeito",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Aline Nascimento",
     "rating": 5,
     "text": "PERFEITO 💜",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Pam Nóbrega",
     "rating": 5,
     "text": "🥰🥰😍",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Renata Alves",
     "rating": 5,
     "text": "creme delicioso",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Quina Veloso",
     "rating": 5,
     "text": "delicioso",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Leonor Dorneles",
     "rating": 5,
     "text": "Artigo bom",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Luiza da Paz",
     "rating": 4,
     "text": "Eu pedi o 147 agora para comparar com o 345, e acho que o outro hidrata muito melhor.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Gabi Custódio",
     "rating": 3,
     "text": "Razoavelmente bom",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Tânia Varela",
     "rating": 3,
     "text": "Nada mal",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Melissa Assis",
     "rating": 5,
     "text": "Super hidratante, excelente!! Adorei, super recomendo.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Núbia Ribeiro",
     "rating": 5,
     "text": "Produto muito bom. Usei por alguns dias no frio do inverno e adorei.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Emília Nogueira",
     "rating": 5,
     "text": "Eu recomendo.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Fê Camilo",
     "rating": 5,
     "text": "satisfeito",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Nanda Calixto",
     "rating": 5,
     "text": "PERFEITO 💜",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Mel Santos",
     "rating": 5,
     "text": "🥰🥰😍",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Iara Pilar",
     "rating": 5,
     "text": "creme delicioso",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Isis Muniz",
     "rating": 5,
     "text": "delicioso",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Heloísa Marinho",
     "rating": 5,
     "text": "Artigo bom",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Grazi Taveira",
     "rating": 4,
     "text": "Eu pedi o 147 agora para comparar com o 345, e acho que o outro hidrata muito melhor.",
-    "sourceFile": "bkreviews_reviews.csv"
+    "sourceFile": "bkreviews_reviews.csv",
+    "pictures": []
   },
   {
     "name": "Aurelio Maldonado",
     "rating": 5,
     "text": "Adoro! Esta é a segunda vez que faço o pedido porque gostei muito.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A6365497d16a8499ca995732ea0a42697r.jpg"
+    ]
   },
   {
     "name": "Penélope Paris",
     "rating": 5,
     "text": "Gosto do produto. Chegou no prazo.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/Ae971748bb90f437589fe5f88be282917a.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A8d2e7e144e0944b99b6c60eda775412cv.jpg"
+    ]
   },
   {
     "name": "Dafne Aparício",
     "rating": 5,
     "text": "Original",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/Ac75775c935674e59b6c6edac3076434e1.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A9204b64d797c4aeaae8335fe73b3ecb7t.jpg"
+    ]
   },
   {
     "name": "Leo Damásio",
     "rating": 5,
     "text": "muito rico, deixa a pele nutrida",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A940e32324c64442f9a530e8f82020ab66.jpg"
+    ]
   },
   {
     "name": "Dênio Nascimento",
     "rating": 5,
     "text": "Adoro o nosso produto favorito em casa; você pode usá-lo de dia ou de noite. Ele realmente hidrata sem deixar o rosto oleoso e não faz você suar excessivamente, como muitos outros cremes. Os produtos coreanos estão em um nível diferente; eu recomendo muito. É o original, o que é importante, já que existem muitas imitações.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A81891535155b437b813ce41bc68b8d28E.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/Af78b532d0c1a43a58bd4b37b84a1b48bs.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A11ed6483408a4a5aac93926b8b58396es.jpg"
+    ]
   },
   {
     "name": "Alê Paiva",
     "rating": 5,
     "text": "Eu realmente adorei porque parece ser o original, é super bom, ajudou minha pele desde o primeiro dia e hidratou sem nenhum problema, é excelente, recomendo muito.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/Aaef8b534e9c6482e860b5d80af37cf5e0.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A4ee54eee5e604d43a6edba200ebe7e88g.jpg"
+    ]
   },
   {
     "name": "Cristiano Veiga",
     "rating": 5,
     "text": "Gostei muito, é bem leve e deixa um acabamento agradável na pele, recomendo :33",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A8c17e039082a4746bcda6e6866d0b958K.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A348184669bb944c5848176eff5a74c68A.jpg"
+    ]
   },
   {
     "name": "Lelo Aguiar",
     "rating": 5,
     "text": "Ainda não experimentei, mas é exatamente como anunciado 👍",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A61d77f7b3c164ef8a28c1190839f07d5K.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/Af590ddda763e4e0f8cb82a306c264627F.jpg"
+    ]
   },
   {
     "name": "Nadi Gonçalves",
     "rating": 5,
     "text": "Adoro! Esta é a segunda vez que faço o pedido porque gostei muito.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A6365497d16a8499ca995732ea0a42697r.jpg"
+    ]
   },
   {
     "name": "Mirela Resende",
     "rating": 5,
     "text": "Gosto do produto. Chegou no prazo.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/Ae971748bb90f437589fe5f88be282917a.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A8d2e7e144e0944b99b6c60eda775412cv.jpg"
+    ]
   },
   {
     "name": "Dalton Caetano",
     "rating": 5,
     "text": "Original",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/Ac75775c935674e59b6c6edac3076434e1.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A9204b64d797c4aeaae8335fe73b3ecb7t.jpg"
+    ]
   },
   {
     "name": "Beto Carvalho",
     "rating": 5,
     "text": "muito rico, deixa a pele nutrida",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A940e32324c64442f9a530e8f82020ab66.jpg"
+    ]
   },
   {
     "name": "Breno Padilha",
     "rating": 5,
     "text": "Adoro o nosso produto favorito em casa; você pode usá-lo de dia ou de noite. Ele realmente hidrata sem deixar o rosto oleoso e não faz você suar excessivamente, como muitos outros cremes. Os produtos coreanos estão em um nível diferente; eu recomendo muito. É o original, o que é importante, já que existem muitas imitações.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A81891535155b437b813ce41bc68b8d28E.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/Af78b532d0c1a43a58bd4b37b84a1b48bs.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A11ed6483408a4a5aac93926b8b58396es.jpg"
+    ]
   },
   {
     "name": "Viviane Quarteira",
     "rating": 5,
     "text": "Eu realmente adorei porque parece ser o original, é super bom, ajudou minha pele desde o primeiro dia e hidratou sem nenhum problema, é excelente, recomendo muito.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/Aaef8b534e9c6482e860b5d80af37cf5e0.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A4ee54eee5e604d43a6edba200ebe7e88g.jpg"
+    ]
   },
   {
     "name": "Biel Ramires",
     "rating": 5,
     "text": "Gostei muito, é bem leve e deixa um acabamento agradável na pele, recomendo :33",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A8c17e039082a4746bcda6e6866d0b958K.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A348184669bb944c5848176eff5a74c68A.jpg"
+    ]
   },
   {
     "name": "Wagner Cortês",
     "rating": 5,
     "text": "Ainda não experimentei, mas é exatamente como anunciado 👍",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A61d77f7b3c164ef8a28c1190839f07d5K.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/Af590ddda763e4e0f8cb82a306c264627F.jpg"
+    ]
   },
   {
     "name": "Lili Alegria",
     "rating": 5,
     "text": "Maravilhoso, deixa minha pele super hidratada.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A6b94d5dec4864a60aae113f9300a36f11.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A606a66356d0b413b8ae25f2abbdd37d3p.jpg"
+    ]
   },
   {
     "name": "Rodolfo Bittencourt",
     "rating": 5,
     "text": "chegou em segurança",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A4caf4f4c84874a9eab2a8248840e7ba5R.jpg"
+    ]
   },
   {
     "name": "Hernani Ilha",
     "rating": 5,
     "text": "Ainda não abri para usar, veio bem embalado",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A96287309315340558b3f7662f0588277y.jpg"
+    ]
   },
   {
     "name": "Uriel Ramos",
     "rating": 5,
     "text": "Gostei muito do creme e da sensação que ele deixa na pele.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A6b65974c6c67466d8c898070e1d8ddf34.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A57c58285a1944097ac4b17e2a036e8c2M.jpg"
+    ]
   },
   {
     "name": "Luciano Oliveira",
     "rating": 3,
     "text": "Chegou aberto e dobrado, não entendo por quê??",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A8122fdfef59548b899688dfab25d6de7w.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A7e7303256e2f47d68c1bd320f8d6aeeeP.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/kf/A3dcd35fcde124a238f95d5e2d0d57777S.jpg"
+    ]
   },
   {
     "name": "Natália Taveira",
     "rating": 1,
     "text": "Chegou aberto e em mau estado com duas coisas, quero devolvê-lo.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": [
+      "https://ae-pic-a1.aliexpress-media.com/kf/A248b30bbeabd4da28d7a8b875b5d41e0h.jpg"
+    ]
   },
   {
     "name": "Edvaldo Bernardes",
     "rating": 5,
     "text": "Acho que é o original, o código de barras é o mesmo do original. 100% satisfeito com minha compra.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Zezé Curado",
     "rating": 5,
     "text": "Excelente creme, deixa o rosto muito macio. Tenho usado há bastante tempo e ele mantém minha pele linda.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Yasmin Belém",
     "rating": 5,
     "text": "É bom, tô usando agr e aparentemente é bom",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Lipe Novais",
     "rating": 5,
     "text": "Adorei este produto! Super leve! Vale a pena comprar.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Jaqueline Gonçalves",
     "rating": 5,
     "text": "Adorei",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Emílio Lancastre",
     "rating": 5,
     "text": "muito  bom amei",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Lisa Albuquerque",
     "rating": 5,
     "text": "Embora a embalagem tenha chegado danificada e o produto estivesse levemente aberto, o creme é muito bom.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Elias Ibrahim",
     "rating": 5,
     "text": "Ainda não usei, mas parece ser bom.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Evaldo Muniz",
     "rating": 5,
     "text": "Provavelmente é a coisa de verdade! Hahahaha",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Luis Torres",
     "rating": 4,
     "text": "Comprei pela primeira vez, ainda não experimentei.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Amélia Rocha",
     "rating": 5,
     "text": "Obrigado",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Felipe Vasconcelos",
     "rating": 5,
     "text": "É bom, minha pele é mista e muito sensível, com tendência a acne, mas este creme manteve minha acne bem calma e hidratada, melhorando muito minha acne graças a este creme.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Zeze Menezes",
     "rating": 5,
     "text": "Acho que é o original, o código de barras é o mesmo do original. 100% satisfeito com minha compra.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Malu Belchior",
     "rating": 5,
     "text": "Excelente creme, deixa o rosto muito macio. Tenho usado há bastante tempo e ele mantém minha pele linda.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Vânia Dias",
     "rating": 5,
     "text": "É bom, tô usando agr e aparentemente é bom",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Margarida Ibrahim",
     "rating": 5,
     "text": "Adorei este produto! Super leve! Vale a pena comprar.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Re Baptista",
     "rating": 5,
     "text": "Adorei",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Roberta Vasconcelos",
     "rating": 5,
     "text": "muito  bom amei",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Marlene Pinto",
     "rating": 5,
     "text": "Embora a embalagem tenha chegado danificada e o produto estivesse levemente aberto, o creme é muito bom.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Flávio Arruda",
     "rating": 5,
     "text": "Ainda não usei, mas parece ser bom.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Cristiane Gentil",
     "rating": 5,
     "text": "Provavelmente é a coisa de verdade! Hahahaha",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Inês Ramos",
     "rating": 4,
     "text": "Comprei pela primeira vez, ainda não experimentei.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Teddy Resende",
     "rating": 5,
     "text": "Obrigado",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Henry Espinosa",
     "rating": 5,
     "text": "É bom, minha pele é mista e muito sensível, com tendência a acne, mas este creme manteve minha acne bem calma e hidratada, melhorando muito minha acne graças a este creme.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Celio Queiroz",
     "rating": 5,
     "text": "Esta é a segunda vez que compro este produto, e estou satisfeito. Meu filho obteve excelentes resultados no tratamento da acne.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Lipe Salgado",
     "rating": 4,
     "text": "É uma pena que a caixa tenha sido amassada.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Vini Monteiro",
     "rating": 5,
     "text": "Recebi o produto um pouco danificado, mas dentro do prazo especificado.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Fausto Oliveira",
     "rating": 5,
     "text": "Gosto da consistência deste creme; este é o segundo que comprei. É suave, mas hidratante, e é ótimo para adolescentes.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Ilídio Muniz",
     "rating": 5,
     "text": "Não sei se é o original, mas acho que sim, estou 90% convencido de que é, pelo menos a caixa e o botão são iguais ao original. Ainda não notei nenhuma diferença, então, se for, então ótimo, esse preço é muito mais acessível, adorei! Ah! E eu tenho pele mista/sensível com rosácea, até agora não tive nenhum problema, então ainda melhor 🫶🏻",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Fidel Bittencourt",
     "rating": 5,
     "text": "Esta é a terceira vez que compro e adorei.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Tato Barros",
     "rating": 5,
     "text": "muito bom, vou pedir novamente",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Má da Cunha",
     "rating": 5,
     "text": "Chegou super rápido",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Jarbas Cavalcanti",
     "rating": 5,
     "text": "Estou usando há um mês, talvez seja falso, mas minha pele ficou mais firme e melhor.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Yara das Neves",
     "rating": 4,
     "text": "Eu pedi o 147 agora para comparar com o 345, e acho que o outro hidrata muito melhor.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Carol Santos",
     "rating": 5,
     "text": "a mesma coisa chegou",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Vevê Mesquita",
     "rating": 5,
     "text": "Chegou rapidamente.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Yolanda Gomes",
     "rating": 5,
     "text": "Isso é bom.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Carmine Neves",
     "rating": 5,
     "text": "original",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Cristina Gomes",
     "rating": 5,
     "text": "Excelente",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Manu Trindade",
     "rating": 2,
     "text": "Produto falsificado",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Nico Quarteira",
     "rating": 3,
     "text": "obs: embalagens chegaram todas danificadas, devem sem embaladas com mais proteção, dentro de outra caixa.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Yan Ilha",
     "rating": 1,
     "text": "É uma farsa, não jogue seu dinheiro fora.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Léo Almada",
     "rating": 1,
     "text": "É muito falso, nem sequer é parecido.",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   },
   {
     "name": "Dudu Bittencourt",
     "rating": 1,
     "text": "Ok",
-    "sourceFile": "bkreviews_reviews (1).csv"
+    "sourceFile": "bkreviews_reviews (1).csv",
+    "pictures": []
   }
 ]
