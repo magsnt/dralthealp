@@ -3,7 +3,8 @@
 import { useState, type FormEvent } from 'react';
 import { ArrowLeft, ArrowUpRight, PackageSearch, LoaderCircle } from 'lucide-react';
 
-type TrackingWidget = { trackSingle: (options: { YQ_ContainerId: string; YQ_Height: number; YQ_Fc: string; YQ_Lang: string; YQ_Num: string }) => void };
+type TrackingWidget = { trackSingle: (options: { YQ_ContainerId: string; YQ_Height: number; YQ_Fc: string; YQ_Lang: string; YQ_Num: string; YQ_RmHeader: boolean; YQ_RmAD: boolean }) => void };
+const CARRIER_3CQ = '191809';
 declare global { interface Window { YQV5?: TrackingWidget } }
 let widgetLoad: Promise<TrackingWidget> | null = null;
 
@@ -53,10 +54,9 @@ export default function TrackingPage() {
       const widget = await loadTrackingWidget();
       setSubmitted(code);
       await new Promise<void>(resolve=>window.requestAnimationFrame(()=>resolve()));
-      widget.trackSingle({ YQ_ContainerId: 'tracking-result', YQ_Height: 640, YQ_Fc: '0', YQ_Lang: 'pt', YQ_Num: code });
-      setSubmitted(code);
+      widget.trackSingle({ YQ_ContainerId: 'tracking-result', YQ_Height: 640, YQ_Fc: CARRIER_3CQ, YQ_Lang: 'pt', YQ_Num: code, YQ_RmHeader: true, YQ_RmAD: true });
     } catch {
-      setError('A consulta está indisponível no momento. Tente novamente ou consulte diretamente no serviço de rastreamento.');
+      setError('A consulta está indisponível no momento. Tente novamente mais tarde ou entre em contato com nosso atendimento.');
     } finally {
       setLoading(false);
     }
@@ -82,13 +82,13 @@ export default function TrackingPage() {
             <input id="tracking-number" value={number} onChange={e=>setNumber(e.target.value)} maxLength={50} placeholder="Ex.: AB123456789CD" autoComplete="off" autoCapitalize="characters" spellCheck={false} required aria-invalid={!!error} aria-describedby={error?'tracking-hint tracking-error':'tracking-hint'}/>
             <button type="submit" className="button" disabled={loading}>{loading?<><LoaderCircle size={17} className="tracking-spinner"/> Preparando consulta</>:<>Rastrear pedido <ArrowUpRight size={17}/></>}</button>
           </div>
-          <p id="tracking-hint" className="tracking-hint">Use o código de rastreio da transportadora, não o número do pedido.</p>
-          {error&&<div id="tracking-error" className="tracking-error" role="alert"><p>{error}</p><a href={'https://t.17track.net/pt#nums='+encodeURIComponent(number.replace(/\s/g,''))} target="_blank" rel="noopener noreferrer">Consultar no 17TRACK <ArrowUpRight size={14}/></a></div>}
+          <p id="tracking-hint" className="tracking-hint">Transportadora: 3CQ. Use o código de rastreio recebido após o envio, não o número do pedido.</p>
+          {error&&<div id="tracking-error" className="tracking-error" role="alert"><p>{error}</p><a href="/#perguntas">Preciso de ajuda <ArrowUpRight size={14}/></a></div>}
         </form>
         {!submitted&&<div className="tracking-empty"><PackageSearch size={34} strokeWidth={1}/><h2>Cada etapa, mais perto de você.</h2><p>Digite seu código acima para acompanhar o percurso da entrega.</p></div>}
         {submitted&&<div className="tracking-result-heading"><span className="eyebrow">ATUALIZAÇÕES DA ENTREGA</span><p>Código <strong>{submitted}</strong></p></div>}
         <div id="tracking-result" className="tracking-result" hidden={!submitted}/>
-        {submitted&&<p className="tracking-provider">Consulta fornecida pelo 17TRACK. As atualizações dependem da transportadora.</p>}
+        {submitted&&<p className="tracking-provider">As atualizações da entrega são fornecidas pela transportadora.</p>}
       </section>
       <section className="tracking-faq" aria-label="Ajuda com rastreamento">
         <details><summary>Onde encontro meu código?</summary><p>Confira a mensagem de confirmação de envio da loja. O código de rastreio é disponibilizado depois que o pedido é despachado.</p></details>
