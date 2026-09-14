@@ -74,7 +74,7 @@ const faq:[string,string][]=[
  ['Qual é a textura do 345 Relief Cream?','Um creme de textura leve, pensado para a hidratação diária.'],
  ['Qual é a textura do 147 Barrier Cream?','Uma textura rica e confortável, especialmente indicada pelo fabricante para a rotina noturna, períodos frios ou momentos de maior ressecamento.'],
  ['O que vem em cada kit?','Você pode escolher 1, 2 ou 3 unidades de 50 ml do produto disponível.'],
- ['Como finalizo a compra?','Depois de escolher a quantidade, você será direcionado ao checkout seguro da Shopify para informar entrega e pagamento.']];
+ ['Como finalizo a compra?','Depois de escolher a quantidade e finalizar o carrinho, você será direcionado ao checkout da Yampi para informar entrega e pagamento.']];
 const gallery=[{id:2,label:'Um momento de pausa'},{id:7,label:'Essencial para levar'},{id:8,label:'Sempre por perto'},{id:4,label:'A delicadeza da textura'},{id:9,label:'Cuidado que acompanha você'}];
 const displayedReviews=importedReviews.filter(r=>r.rating>=4);
 const reviewRows=[displayedReviews.filter((_,i)=>i%2===0),displayedReviews.filter((_,i)=>i%2===1)];
@@ -127,7 +127,7 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
     <RadioGroupItem value={String(k.qty)} aria-label={`${k.qty} ${k.qty===1?'unidade':'unidades'}`}/>
     <span className="kit-label"><strong>{k.qty} {k.qty===1?'Unidade':'Unidades'}{off>0&&<i className="kit-off">Economize {money(off)}</i>}</strong><small>{money(k.price/k.qty)} por unidade</small></span>
     <span className="kit-price"><strong>{money(k.price)}</strong>{off>0&&<s>{money(de)}</s>}</span></label>})}</RadioGroup>
-   {p.available?<><p className="pix-strip"><Sparkles size={15}/> Compra processada com segurança pela <b>Shopify</b></p>
+   {p.available?<><p className="pix-strip"><Sparkles size={15}/> Finalização da compra pela <b>Yampi</b></p>
    <Button className="button pdp-button" onClick={()=>onAdd(p,kit!)}>ADICIONAR AO CARRINHO</Button>
    <div className="pdp-terms"><span><CreditCard size={15}/> pagamento no checkout</span><span><Truck size={15}/> {loja.frete}</span></div></>:<p className="pending-note">Produto esgotado no momento.</p>}</>:<p className="pending-note">Produto indisponível no momento.</p>}
   <div className="pdp-tabs">
@@ -157,7 +157,7 @@ export default function Home(){
  const subtotal=lines.reduce((s,l)=>s+find(l.slug,l.qty).price*l.n,0);
  const checkout=()=>{
   const items=lines.map(l=>{const p=products.find(x=>x.slug===l.slug)!;return p.shopifyVariantId?`${p.shopifyVariantId}:${l.qty*l.n}`:null}).filter(Boolean).join(',');
-  if(items) window.location.href=`https://evg0ar-mr.myshopify.com/cart/${items}`;
+  if(items) window.location.href=`https://evg0ar-mr.myshopify.com/cart/${items}?storefront=true`;
  };
  return <>
  <div className="announcement">Cuidado coreano. Um momento só seu.</div>
