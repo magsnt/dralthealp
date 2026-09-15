@@ -1432,6 +1432,17 @@ figure {
   padding: 0;
   white-space: nowrap;
 }
+.kit-pix {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #586a5b;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.catalog-info .catalog-pix {
+  color: #586a5b;
+  font-size: 0.875rem;
+}
 .kit-price {
   margin-left: auto;
   text-align: right;
