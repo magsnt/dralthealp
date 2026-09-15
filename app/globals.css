@@ -2200,12 +2200,6 @@ figure {
 }
 
 /* Avaliações com altura uniforme e fotos em faixa compacta. */
-.reviews-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: start; }
-.review-card { min-width: 0; border: 1px solid #e8e8e5; border-radius: 8px; background: #fff; overflow: hidden; }
-.review-card blockquote { margin: 14px 0; font-size: 14px; line-height: 1.7; color: #555; overflow-wrap: anywhere; }
-.reviews-more { display: flex; justify-content: center; margin-top: 32px; }
-@media (max-width: 1100px) { .reviews-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .reviews-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
 .review-marquees { gap: 12px; }
 .review-rail { align-items: stretch; gap: 12px; }
 .review-rail article { height: 360px; }
