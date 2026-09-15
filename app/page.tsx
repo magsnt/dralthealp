@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import importedReviews from '@/lib/imported-reviews.json';
 const money=(n:number)=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const loja={frete:'Frete e prazo calculados no checkout'};
-type Kit={qty:number;name:string;price:number;popular?:boolean};
+type Kit={qty:number;name:string;price:number;shopifyVariantId:string;popular?:boolean};
 type Asset=number|string;
 type Product={
  slug:string;name:string;category:string;eyebrow:string;subtitle:string;
@@ -29,7 +29,7 @@ const products:Product[]=[{
  unit:'50 ml',
  cover:3,
  photos:[3,1,4,5],
- kits:[{qty:1,name:'O seu primeiro ritual',price:247,popular:true},{qty:2,name:'Cuidado em dobro',price:494},{qty:3,name:'Seu ritual completo',price:741}],
+ kits:[{qty:1,name:'O seu primeiro ritual',price:217,shopifyVariantId:'48911190655133',popular:true},{qty:2,name:'Cuidado em dobro',price:317,shopifyVariantId:'48911190687901'},{qty:3,name:'Seu ritual completo',price:397,shopifyVariantId:'48911190720669'}],
  benefits:['Hidratação equilibrada','Barreira de umidade','Textura mais suave','Textura leve, sem sensação pesada'],
  rating:{score:4.9,count:1091},
  shopifyVariantId:null,
@@ -53,7 +53,7 @@ const products:Product[]=[{
  unit:'50 ml',
  cover:'147-2.webp',
  photos:['147-2.webp','147-4.webp','147-3.webp','147-1.webp','147-5.webp','147-6.webp','147-7.webp','147-8.webp'],
- kits:[{qty:1,name:'O seu primeiro ritual',price:257,popular:true},{qty:2,name:'Cuidado em dobro',price:514},{qty:3,name:'Seu ritual completo',price:771}],
+ kits:[{qty:1,name:'O seu primeiro ritual',price:217,shopifyVariantId:'48911190851741',popular:true},{qty:2,name:'Cuidado em dobro',price:317,shopifyVariantId:'48911190884509'},{qty:3,name:'Seu ritual completo',price:397,shopifyVariantId:'48911190917277'}],
  benefits:['Suporte à barreira de umidade','Hidratação profunda e duradoura','Conforto para a pele ressecada','Textura rica, sem acabamento oleoso'],
  rating:{score:4.9,count:297},
  shopifyVariantId:'48888637915293',
@@ -122,14 +122,14 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
   {p.benefits.length>0?<div className="pdp-benefits" aria-label="Principais benefícios">{p.benefits.map((b,i)=><div key={b}><span>0{i+1}</span><p>{b}</p></div>)}</div>:<p className="pending-note">Benefícios a preencher.</p>}
   {p.kits.length>0?<>
    <div className="kit-heading"><div><span className="eyebrow">ESCOLHA SEU RITUAL</span><p>Selecione a quantidade desejada.</p></div><span>{p.unit} por unidade</span></div>
-   <RadioGroup value={selected} onValueChange={v=>setSelected(String(v))} aria-label="Escolha um kit ilustrativo" className="kit-options">{p.kits.map(k=>{const de=unitRef*k.qty,off=de-k.price;return <label className={`kit-option ${selected===String(k.qty)?'selected':''}`} key={k.qty}>
+   <RadioGroup value={selected} onValueChange={v=>setSelected(String(v))} aria-label="Escolha a quantidade" className="kit-options">{p.kits.map(k=>{const de=unitRef*k.qty,off=de-k.price;return <label className={`kit-option ${selected===String(k.qty)?'selected':''}`} key={k.qty}>
     {k.popular&&<i className="kit-badge">ESCOLHA FAVORITA</i>}
     <RadioGroupItem value={String(k.qty)} aria-label={`${k.qty} ${k.qty===1?'unidade':'unidades'}`}/>
     <span className="kit-label"><strong>{k.qty} {k.qty===1?'Unidade':'Unidades'}{off>0&&<i className="kit-off">Economize {money(off)}</i>}</strong><small>{money(k.price/k.qty)} por unidade</small></span>
     <span className="kit-price"><strong>{money(k.price)}</strong>{off>0&&<s>{money(de)}</s>}</span></label>})}</RadioGroup>
    {p.available?<><p className="pix-strip"><Sparkles size={15}/> Finalização da compra pela <b>Yampi</b></p>
    <Button className="button pdp-button" onClick={()=>onAdd(p,kit!)}>ADICIONAR AO CARRINHO</Button>
-   <div className="pdp-terms"><span><CreditCard size={15}/> pagamento no checkout</span><span><Truck size={15}/> {loja.frete}</span></div></>:<p className="pending-note">Produto esgotado no momento.</p>}</>:<p className="pending-note">Produto indisponível no momento.</p>}
+   <div className="pdp-terms"><span><CreditCard size={15}/> até 3x sem juros; acima, com juros</span><span><Truck size={15}/> {loja.frete}</span></div></>:<p className="pending-note">Produto esgotado no momento.</p>}</>:<p className="pending-note">Produto indisponível no momento.</p>}
   <div className="pdp-tabs">
    <div className="tab-list" role="tablist" aria-label={`Informações sobre ${p.name}`}>{tabDefs.map(t=><button key={t.id} role="tab" id={`${anchor(p.slug)}-tab-${t.id}`} aria-selected={tab===t.id} aria-controls={`${anchor(p.slug)}-panel-${t.id}`} className={tab===t.id?'active':''} onClick={()=>setTab(t.id)}>{t.label}</button>)}</div>
    {tabDefs.map(t=><div key={t.id} role="tabpanel" id={`${anchor(p.slug)}-panel-${t.id}`} aria-labelledby={`${anchor(p.slug)}-tab-${t.id}`} className="tab-panel" hidden={tab!==t.id}>
@@ -156,7 +156,7 @@ export default function Home(){
  const itens=lines.reduce((s,l)=>s+l.n,0);
  const subtotal=lines.reduce((s,l)=>s+find(l.slug,l.qty).price*l.n,0);
  const checkout=()=>{
-  const items=lines.map(l=>{const p=products.find(x=>x.slug===l.slug)!;return p.shopifyVariantId?`${p.shopifyVariantId}:${l.qty*l.n}`:null}).filter(Boolean).join(',');
+  const items=lines.map(l=>`${find(l.slug,l.qty).shopifyVariantId}:${l.n}`).join(',');
   if(items) window.location.href=`https://evg0ar-mr.myshopify.com/cart/${items}?storefront=true`;
  };
  return <>
