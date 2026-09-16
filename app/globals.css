@@ -1470,14 +1470,13 @@ figure {
 .ugc {
   background: #fafaf8;
 }
-.ugc-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+.ugc-carousel {
   margin-top: 55px;
 }
-.ugc-grid img,
-.ugc-grid video {
+.ugc-slide {
+  flex-basis: 27%;
+}
+.ugc-slide video {
   aspect-ratio: 9/16;
   object-fit: cover;
   width: 100%;
@@ -1486,19 +1485,9 @@ figure {
   overflow: hidden;
   background: #eeefec;
 }
-.ugc-grid video {
+.ugc-slide video {
   display: block;
   background: #151515;
-}
-.ugc-grid figcaption {
-  padding-top: 18px;
-}
-.ugc-grid h3 {
-  font-size: 19px;
-}
-.ugc-grid p {
-  font-size: 12px;
-  margin-top: 5px;
 }
 .section-note {
   font-size: 11px;
@@ -1807,8 +1796,8 @@ figure {
   .kit-price {
     font-size: 13px;
   }
-  .ugc-grid {
-    gap: 15px;
+  .ugc-slide {
+    flex-basis: 36%;
   }
   .why {
     gap: 6%;
@@ -1871,16 +1860,11 @@ figure {
   .kit-price {
     font-size: 15px;
   }
-  .ugc-grid {
-    gap: 12px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .ugc-carousel {
     margin-top: 35px;
   }
-  .ugc-grid h3 {
-    font-size: 21px;
-  }
-  .ugc-grid p {
-    font-size: 14px;
+  .ugc-slide {
+    flex-basis: 72%;
   }
   .review-marquees {
     gap: 14px;
