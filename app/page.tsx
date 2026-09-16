@@ -34,7 +34,7 @@ const products:Product[]=[{
  benefits:['Hidratação equilibrada','Barreira de umidade','Textura mais suave','Textura leve, sem sensação pesada'],
  rating:{score:4.9,count:1091},
  shopifyVariantId:null,
- available:false,
+ available:true,
  tabs:{
   descricao:'Hidratante facial de textura leve para uma rotina de cuidado com a pele sensível. Niacinamida, pantenol e ceramida NP em uma fórmula para todos os dias. Segundo a Dr. Althea, a fórmula combina hidratação, suporte à barreira de umidade e cuidado com a aparência da textura da pele.',
   ingredientes:[
