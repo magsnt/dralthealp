@@ -67,7 +67,7 @@ export default function TrackingPage() {
     <header className="tracking-header">
       <a href="/" className="tracking-back"><ArrowLeft size={16}/> <span>Voltar à loja</span></a>
       <a className="brand" href="/" aria-label="Dr. Althea — início"><img src="/images/logo.webp" alt="Dr. Althea" width="3545" height="1182"/></a>
-      <a href="/#perguntas" className="tracking-help">Precisa de ajuda?</a>
+      <a href="/fale-conosco" className="tracking-help">Precisa de ajuda?</a>
     </header>
     <main className="tracking-page">
       <section className="tracking-intro">
@@ -82,8 +82,8 @@ export default function TrackingPage() {
             <input id="tracking-number" value={number} onChange={e=>setNumber(e.target.value)} maxLength={50} placeholder="Ex.: AB123456789CD" autoComplete="off" autoCapitalize="characters" spellCheck={false} required aria-invalid={!!error} aria-describedby={error?'tracking-hint tracking-error':'tracking-hint'}/>
             <button type="submit" className="button" disabled={loading}>{loading?<><LoaderCircle size={17} className="tracking-spinner"/> Preparando consulta</>:<>Rastrear pedido <ArrowUpRight size={17}/></>}</button>
           </div>
-          <p id="tracking-hint" className="tracking-hint">Transportadora: 3CQ. Use o código de rastreio recebido após o envio, não o número do pedido.</p>
-          {error&&<div id="tracking-error" className="tracking-error" role="alert"><p>{error}</p><a href="/#perguntas">Preciso de ajuda <ArrowUpRight size={14}/></a></div>}
+          <p id="tracking-hint" className="tracking-hint">Use o código de rastreio recebido após o envio, não o número do pedido.</p>
+          {error&&<div id="tracking-error" className="tracking-error" role="alert"><p>{error}</p><a href="/fale-conosco">Preciso de ajuda <ArrowUpRight size={14}/></a></div>}
         </form>
         {!submitted&&<div className="tracking-empty"><PackageSearch size={34} strokeWidth={1}/><h2>Cada etapa, mais perto de você.</h2><p>Digite seu código acima para acompanhar o percurso da entrega.</p></div>}
         {submitted&&<div className="tracking-result-heading"><span className="eyebrow">ATUALIZAÇÕES DA ENTREGA</span><p>Código <strong>{submitted}</strong></p></div>}
