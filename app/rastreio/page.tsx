@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { ArrowLeft, ArrowUpRight, PackageSearch, LoaderCircle } from 'lucide-react';
 
 type TrackingWidget = { trackSingle: (options: { YQ_ContainerId: string; YQ_Height: number; YQ_Fc: string; YQ_Lang: string; YQ_Num: string; YQ_RmHeader: boolean; YQ_RmAD: boolean }) => void };
@@ -38,17 +38,19 @@ export default function TrackingPage() {
   const [submitted, setSubmitted] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const autoStarted = useRef(false);
+  const loadingRef = useRef(false);
 
-  async function track(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (loading) return;
-    const code = number.replace(/\s/g, '').toUpperCase();
+  async function trackCode(rawCode: string) {
+    if (loadingRef.current) return;
+    const code = rawCode.replace(/\s/g, '').toUpperCase();
     setError('');
     if (!/^[A-Z0-9-]{6,50}$/.test(code)) {
       setError('Confira o código de rastreio: use entre 6 e 50 letras ou números, sem caracteres especiais.');
       return;
     }
     setNumber(code);
+    loadingRef.current = true;
     setLoading(true);
     try {
       const widget = await loadTrackingWidget();
@@ -58,8 +60,25 @@ export default function TrackingPage() {
     } catch {
       setError('A consulta está indisponível no momento. Tente novamente mais tarde ou entre em contato com nosso atendimento.');
     } finally {
+      loadingRef.current = false;
       setLoading(false);
     }
+  }
+
+  useEffect(() => {
+    if (autoStarted.current) return;
+    autoStarted.current = true;
+    const pathCode = window.location.pathname.match(/^\/rastreio\/([^/]+)\/?$/i)?.[1];
+    const code = new URLSearchParams(window.location.search).get('codigo') ?? pathCode;
+    if (code) {
+      setNumber(code);
+      void trackCode(code);
+    }
+  }, []);
+
+  function track(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    void trackCode(number);
   }
 
   return <>
