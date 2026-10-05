@@ -16,7 +16,7 @@ type Product={
  slug:string;name:string;category:string;eyebrow:string;subtitle:string;
  volume:string;unit:string;cover:Asset|null;photos:Asset[];kits:Kit[];benefits:string[];
  rating:{score:number;count:number}|null;
- shopifyVariantId:string|null;available:boolean;
+ available:boolean;
  tabs:{descricao:string;ingredientes:{name:string;desc:string}[];uso:[string,string][];entrega:string};
  source:string|null;
 };
@@ -33,7 +33,6 @@ const products:Product[]=[{
  kits:[{qty:1,name:'O seu primeiro ritual',price:221.11,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/M4M6OCL21I:1'},{qty:2,name:'Cuidado em dobro',price:318.89,compareAt:434,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/QVOGYCIMWS:1',popular:true},{qty:3,name:'Seu ritual completo',price:396.67,compareAt:651,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/3O0P9HXJPF:1'}],
  benefits:['Hidratação equilibrada','Barreira de umidade','Textura mais suave','Textura leve, sem sensação pesada'],
  rating:{score:4.9,count:1091},
- shopifyVariantId:null,
  available:true,
  tabs:{
   descricao:'Hidratante facial de textura leve para uma rotina de cuidado com a pele sensível. Niacinamida, pantenol e ceramida NP em uma fórmula para todos os dias. Segundo a Dr. Althea, a fórmula combina hidratação, suporte à barreira de umidade e cuidado com a aparência da textura da pele.',
@@ -54,10 +53,9 @@ const products:Product[]=[{
  unit:'50 ml',
  cover:'147-2.webp',
  photos:['147-2.webp','147-4.webp','147-3.webp','147-1.webp','147-5.webp','147-6.webp','147-7.webp','147-8.webp'],
- kits:[{qty:1,name:'O seu primeiro ritual',price:221.11,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/S8V9ZGEIP2:1'},{qty:2,name:'Cuidado em dobro',price:318.89,compareAt:434,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/71KGPVYCVZ:1',popular:true},{qty:3,name:'Seu ritual completo',price:396.67,compareAt:651,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/QU9QSXCWLI:1'}],
+ kits:[{qty:1,name:'O seu primeiro ritual',price:217,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/S8V9ZGEIP2:1'},{qty:2,name:'Cuidado em dobro',price:317,compareAt:434,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/71KGPVYCVZ:1',popular:true},{qty:3,name:'Seu ritual completo',price:397,compareAt:651,yampiCheckoutUrl:'https://doctor-althea-br.pay.yampi.com.br/r/QU9QSXCWLI:1'}],
  benefits:['Suporte à barreira de umidade','Hidratação profunda e duradoura','Conforto para a pele ressecada','Textura rica, sem acabamento oleoso'],
  rating:{score:4.9,count:297},
- shopifyVariantId:'48888637915293',
  available:true,
  tabs:{
   descricao:'Creme hidratante diário desenvolvido para peles secas, desidratadas, sensíveis ou com a barreira fragilizada. Segundo a Dr. Althea, sua textura rica e confortável ajuda a repor e reter a umidade, reduzindo a sensação de repuxamento, aspereza e desconforto sem deixar acabamento oleoso.',
