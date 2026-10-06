@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ArrowDown, ArrowRight, Plus, Minus, Star, X, ShoppingBag, CreditCard, Truck, Volume2 } from 'lucide-react';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
@@ -7,6 +7,8 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import importedReviews from '@/lib/imported-reviews.json';
+import { dadosProduto, fbEvento } from '@/lib/fbpixel';
+import { useViewContent } from '@/hooks/useViewContent';
 const money=(n:number)=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const loja={frete:'Frete grátis para todo o Brasil'};
 const pixPrice=(price:number)=>Math.round(price*0.9*100)/100;
@@ -100,11 +102,13 @@ const tabDefs=[{id:'descricao',label:'DESCRIÇÃO'},{id:'ingredientes',label:'IN
 const anchor=(slug:string)=>`produto-${slug}`;
 type Line={slug:string;qty:number;n:number};
 function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
+ const secaoRef=useRef<HTMLElement>(null);
+ useViewContent(secaoRef,{id:p.slug,nome:p.name,preco:p.kits[0].price});
  const [photo,setPhoto]=useState(p.photos[0]??null);
  const [selected,setSelected]=useState(String((p.kits.find(k=>k.popular)??p.kits[0])?.qty??''));
  const [tab,setTab]=useState('descricao');
  const kit=p.kits.find(k=>String(k.qty)===selected);
- return <section className="pdp" id={anchor(p.slug)}>
+ return <section className="pdp" id={anchor(p.slug)} ref={secaoRef}>
  <div className="pdp-media"><div className="pdp-visual"><span className="eyebrow image-label">{p.eyebrow}</span><Shot n={photo} alt={`${p.name} — fotografia do produto`}/></div>{p.photos.length>1&&<div className="thumbnails" aria-label="Fotos do produto">{p.photos.map((n,i)=><button key={n} onClick={()=>setPhoto(n)} aria-label={`Ver foto ${i+1} do produto`} aria-pressed={photo===n}><img src={assetSrc(n)} alt="" loading="lazy" width="1122" height="1402"/></button>)}</div>}</div>
  <div className="pdp-info">
   <span className="pdp-crumb">DR. ALTHEA · {p.category}</span>
@@ -154,6 +158,7 @@ export default function Home(){
  const find=(slug:string,qty:number)=>products.find(p=>p.slug===slug)!.kits.find(k=>k.qty===qty)!;
  const add=(p:Product,kit:Kit)=>{
   setLines(prev=>{const i=prev.findIndex(l=>l.slug===p.slug&&l.qty===kit.qty); if(i<0) return [...prev,{slug:p.slug,qty:kit.qty,n:1}]; const next=[...prev]; next[i]={...next[i],n:next[i].n+1}; return next});
+  fbEvento('AddToCart',dadosProduto({id:p.slug,nome:p.name,preco:p.kits[0].price,quantidade:kit.qty}));
   setCartOpen(true);
  };
  const setN=(slug:string,qty:number,n:number)=>setLines(prev=>n<=0?prev.filter(l=>!(l.slug===slug&&l.qty===qty)):prev.map(l=>l.slug===slug&&l.qty===qty?{...l,n}:l));
