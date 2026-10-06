@@ -4,6 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
  title:'Dr. Althea | O essencial para sua pele',
  description:'Conheça o 345 Relief Cream. Hidratação leve e um ritual de cuidado diário com a pele.',
+ other:{'facebook-domain-verification':'bnhalgjvn424usivarqr2ketml3tpd'},
  icons:{icon:'/favicon.png',shortcut:'/favicon.png',apple:'/favicon.png'}
 };
 export default function RootLayout({children}: Readonly<{children:React.ReactNode}>){
