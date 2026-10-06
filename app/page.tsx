@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight, ArrowDown, ArrowRight, Plus, Minus, Star, X, ShoppingBag, CreditCard, Truck, Volume2 } from 'lucide-react';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
@@ -135,6 +135,19 @@ function ProductDetail({p,onAdd}:{p:Product;onAdd:(p:Product,kit:Kit)=>void}){
  </section>;
 }
 export default function Home(){
+ useEffect(()=>{
+  const scrollWithoutHash=(event:MouseEvent)=>{
+   if(event.defaultPrevented||!(event.target instanceof Element)) return;
+   const link=event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+   if(!link||!link.hash) return;
+   const section=document.getElementById(decodeURIComponent(link.hash.slice(1)));
+   if(!section) return;
+   event.preventDefault();
+   section.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  };
+  document.addEventListener('click',scrollWithoutHash);
+  return ()=>document.removeEventListener('click',scrollWithoutHash);
+ },[]);
  const [ugcOpen,setUgcOpen]=useState<string|null>(null);
  const [lines,setLines]=useState<Line[]>([]);
  const [cartOpen,setCartOpen]=useState(false);
