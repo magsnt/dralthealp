@@ -4,14 +4,15 @@ import { NextResponse } from 'next/server';
 export const runtime = 'nodejs';
 
 type YampiItem = { product_id?: number; bundle_id?: number; gift?: boolean };
+type YampiDate = { date?: string; timezone?: string };
 type YampiOrder = {
   id?: number;
   number?: number;
   authorized?: boolean;
   value_total?: number;
-  created_at?: { date?: string };
+  created_at?: YampiDate;
   status?: { data?: { alias?: string } };
-  transactions?: { data?: { captured?: boolean; authorized_at?: { date?: string }; captured_at?: { date?: string } } };
+  transactions?: { data?: { captured?: boolean; authorized_at?: YampiDate; captured_at?: YampiDate } };
   items?: { data?: YampiItem[] } | YampiItem[];
 };
 
@@ -23,15 +24,24 @@ const catalog = [
   { ids: numberSet(process.env.YAMPI_147_PRODUCT_IDS, [46101361]), name: '147 Barrier Cream', image: '/images/147-2.webp' },
 ];
 
+function timestamp(value: YampiDate | undefined) {
+  if (!value?.date) return NaN;
+  const normalized = value.date.replace(' ', 'T');
+  if (/(?:Z|[+-]\d{2}:?\d{2})$/i.test(normalized)) return Date.parse(normalized);
+  // A API normalmente informa America/Sao_Paulo sem offset na string de data.
+  const offset = value.timezone === 'America/Cuiaba' ? '-04:00' : '-03:00';
+  return Date.parse(`${normalized}${offset}`);
+}
+
 function purchaseFromOrder(order: YampiOrder, secret: string, now: number) {
   if (!order.authorized || !order.value_total || order.value_total <= 0) return null;
   const status = order.status?.data?.alias?.toLowerCase() ?? '';
   if (/cancel|refund|chargeback|fail|pending|unpaid/.test(status)) return null;
 
-  const date = order.transactions?.data?.captured_at?.date
-    ?? order.transactions?.data?.authorized_at?.date
-    ?? order.created_at?.date;
-  const time = date ? Date.parse(date.replace(' ', 'T')) : NaN;
+  const date = order.transactions?.data?.captured_at
+    ?? order.transactions?.data?.authorized_at
+    ?? order.created_at;
+  const time = timestamp(date);
   const age = now - time;
   if (!Number.isFinite(age) || age < 0 || age > 90 * 60_000) return null;
 
