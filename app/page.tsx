@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import importedReviews from '@/lib/imported-reviews.json';
 import { dadosProduto, fbEvento } from '@/lib/fbpixel';
 import { useViewContent } from '@/hooks/useViewContent';
+import { RecentPurchaseNotice } from '@/components/recent-purchase-notice';
 const money=(n:number)=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const loja={frete:'Frete grátis para todo o Brasil'};
 const pixPrice=(price:number)=>Math.round(price*0.9*100)/100;
@@ -193,5 +194,6 @@ export default function Home(){
   {lines.length>0&&<div className="cart-foot"><div className="cart-row"><span>Subtotal</span><span>{money(subtotal)}</span></div><p className="cart-note">{loja.frete}</p><Button className="button cart-checkout" onClick={checkout}>Finalizar compra <ArrowRight size={16}/></Button></div>}
  </SheetContent></Sheet>
  <Dialog open={ugcOpen!==null} onOpenChange={open=>{if(!open)setUgcOpen(null)}}><DialogContent className="ugc-dialog"><DialogTitle className="sr-only">Vídeo de experiência</DialogTitle><DialogDescription className="sr-only">Reprodução ampliada com áudio e controles.</DialogDescription>{ugcOpen&&<video key={ugcOpen} controls autoPlay playsInline><source src={`/videos/${ugcOpen}`} type="video/mp4"/>Seu navegador não oferece suporte à reprodução de vídeo.</video>}</DialogContent></Dialog>
+ <RecentPurchaseNotice/>
  </>;
 }
