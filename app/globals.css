@@ -2494,6 +2494,11 @@ figure {
 .lily-inspired .kit-off { background:#e9f2f8; color:#4b7895; padding:3px 7px; border-radius:100px; }
 .lily-inspired .kit-label strong,.lily-inspired .kit-price strong { color:#1d394c; font-weight:600; }
 .lily-inspired .kit-label small b { color:#4a84a5; font-weight:700; }
+.lily-inspired .kit-price { gap:1px; }
+.lily-inspired .kit-price strong { color:#285f80; font-size:24px; line-height:1.15; }
+.lily-inspired .kit-price-method { color:#285f80; font-size:11px; font-weight:700; }
+.lily-inspired .kit-price small { color:#526772; font-size:12px; margin-top:5px; }
+.lily-inspired .kit-price s { color:#999; font-size:11px; }
 .pdp-pix-note { display:flex; align-items:center; gap:10px; margin-top:16px; padding:13px 15px; background:#e9f4f6; border-radius:10px; color:#2c6174; font-size:13px; }
 .lily-inspired .pdp-button { display:flex; gap:10px; background:#274f68; border-radius:100px; font-weight:700; }
 .lily-inspired .pdp-button:hover { background:#396e8c; }
@@ -2598,7 +2603,8 @@ figure {
   .lily-inspired .kit-option { gap:9px; padding:18px 11px; }
   .lily-inspired .kit-label strong { white-space:normal; gap:5px; font-size:14px; }
   .lily-inspired .kit-label small { font-size:11px; }
-  .lily-inspired .kit-price strong { font-size:16px; }
+  .lily-inspired .kit-price strong { font-size:19px; }
+  .lily-inspired .kit-price small { font-size:11px; }
   .lily-inspired .kit-off { font-size:9px; }
   .ugc-inline { margin-top:30px; }
   .ugc-inline-slide { flex-basis:64%; }
