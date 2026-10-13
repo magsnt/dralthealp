@@ -2477,6 +2477,7 @@ figure {
 .lily-inspired .pdp-crumb { color:#739ab4; font-weight:700; }
 .lily-inspired .pdp h2 { font-family:Georgia,'Times New Roman',serif; font-weight:400; color:#1d394c; letter-spacing:-.04em; }
 .lily-inspired .rating-stars .on { color:#81a9c4; fill:#81a9c4; }
+.lily-inspired .rating-count { text-decoration:none; }
 .lily-inspired .pdp-benefits { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
 .lily-inspired .pdp-benefits > div { display:flex; align-items:center; gap:6px; border:0; border-radius:100px; background:#e6f0f7; padding:7px 11px; }
 .lily-inspired .pdp-benefits svg { color:#4c83a4; }
