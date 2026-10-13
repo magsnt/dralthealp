@@ -2527,9 +2527,11 @@ figure {
 .li-section-head { max-width:740px; margin:0 auto 55px; text-align:center; }
 .li-section-head p { color:#637581; }
 .li-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; max-width:1150px; margin:auto; }
-.li-steps > div { min-height:220px; padding:30px; background:#edf3f6; border-radius:13px; }
+.li-steps > article { overflow:hidden; background:#edf3f6; border-radius:8px; }
+.li-steps img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 30%; }
+.li-step-copy { padding:25px 28px 30px; }
 .li-steps span,.li-ingredient-grid article > span { display:block; color:#6f9ab4; font-size:13px; font-weight:700; letter-spacing:.13em; }
-.li-steps h3,.li-ingredient-grid h3 { color:#1d394c; font-family:Georgia,'Times New Roman',serif; font-size:25px; margin:31px 0 10px; }
+.li-steps h3,.li-ingredient-grid h3 { color:#1d394c; font-family:Georgia,'Times New Roman',serif; font-size:25px; margin:14px 0 10px; }
 .li-steps p,.li-ingredient-grid p { color:#687983; font-size:14px; line-height:1.7; }
 .li-ingredients { display:grid; grid-template-columns:.85fr 1.15fr; gap:65px; padding:110px 7vw; background:#dcebf2; }
 .li-ingredients-lead p { max-width:380px; color:#566e7b; }
@@ -2604,8 +2606,7 @@ figure {
   .li-story-copy { padding:66px 25px; }
   .li-how { padding:78px 22px; }
   .li-steps { grid-template-columns:1fr; gap:11px; }
-  .li-steps > div { min-height:0; }
-  .li-steps h3 { margin-top:18px; }
+  .li-steps img { aspect-ratio:4/3; }
   .li-ingredients { grid-template-columns:1fr; padding:78px 23px; }
   .li-final { padding:85px 22px; }
   .footer-lifestyle { height:220px; }
